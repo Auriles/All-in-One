@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="EggTimer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rzG-pg-7fb">
+                                <rect key="frame" x="92" y="333" width="230" height="60"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1v-3w-ata">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="6Ma-5a-DTT"/>
+                                        </constraints>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <action selector="ActiverMinuteurAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zdd-PH-piD"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GA3-Eg-0wf">
+                                        <rect key="frame" x="130" y="0.0" width="100" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="fNV-aA-jl1"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset"/>
+                                        <connections>
+                                            <action selector="resetMinuteurAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nGH-Mv-BrI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4Bv-os-6Wd"/>
+                                    <constraint firstItem="Y1v-3w-ata" firstAttribute="top" secondItem="rzG-pg-7fb" secondAttribute="top" id="8hY-vD-HPc"/>
+                                    <constraint firstAttribute="trailing" secondItem="GA3-Eg-0wf" secondAttribute="trailing" id="NFQ-ej-jMg"/>
+                                    <constraint firstItem="Y1v-3w-ata" firstAttribute="leading" secondItem="rzG-pg-7fb" secondAttribute="leading" id="j2g-bZ-04c"/>
+                                    <constraint firstItem="GA3-Eg-0wf" firstAttribute="top" secondItem="rzG-pg-7fb" secondAttribute="top" id="xnM-ma-lm9"/>
+                                </constraints>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNi-Eg-CeP">
+                                <rect key="frame" x="42" y="237" width="333" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="eLE-71-BSb"/>
+                                    <constraint firstAttribute="width" constant="333" id="mHb-Qa-EFm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="65"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qj-wD-BNt">
+                                <rect key="frame" x="0.0" y="520" width="414" height="216"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oNi-Eg-CeP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1.5" id="6yQ-V5-RKH"/>
+                            <constraint firstItem="oNi-Eg-CeP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="217" id="CiA-5i-v1k"/>
+                            <constraint firstAttribute="trailing" secondItem="3qj-wD-BNt" secondAttribute="trailing" id="GKz-rw-XFQ"/>
+                            <constraint firstItem="rzG-pg-7fb" firstAttribute="top" secondItem="oNi-Eg-CeP" secondAttribute="bottom" constant="36" id="IN5-nh-JNU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3qj-wD-BNt" secondAttribute="bottom" id="OgS-aU-lfW"/>
+                            <constraint firstItem="3qj-wD-BNt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="aBR-3r-EBi"/>
+                            <constraint firstItem="rzG-pg-7fb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="psy-mB-ckC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activerMinuteurBtn" destination="Y1v-3w-ata" id="1lv-DB-3bH"/>
+                        <outlet property="minuteurLabel" destination="oNi-Eg-CeP" id="MT6-8E-EOv"/>
+                        <outlet property="pickerView" destination="3qj-wD-BNt" id="hD2-RB-77d"/>
+                        <outlet property="resetMinuteurBtn" destination="GA3-Eg-0wf" id="PVv-NI-bcR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.710144927536234" y="136.95652173913044"/>
+        </scene>
+    </scenes>
+</document>
