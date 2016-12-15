@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tipCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bda-Ej-Zpy">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="4jC-i9-K14"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.46416735923313623" green="0.72284396508010906" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.99484265488985224" green="1" blue="0.97831225046347947" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Tip Calculator" id="pAH-0y-PDz"/>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00.00" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgg-hJ-Udq">
+                                <rect key="frame" x="46" y="151" width="282" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="3pL-D8-D9i"/>
+                                    <constraint firstAttribute="width" constant="282" id="fFa-WB-gle"/>
+                                </constraints>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nZz-nv-3YA">
+                                <rect key="frame" x="46" y="265" width="282" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="HR0-nk-ffh"/>
+                                    <constraint firstAttribute="height" constant="28" id="lJP-jN-YLo"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="15%"/>
+                                    <segment title="20%"/>
+                                    <segment title="25%"/>
+                                </segments>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€ tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EJQ-tt-6tq">
+                                <rect key="frame" x="46" y="339" width="282" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="EmK-T3-Xq5"/>
+                                    <constraint firstAttribute="width" constant="282" id="seV-Xv-VUb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€ tip + total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10a-yY-BBn">
+                                <rect key="frame" x="46" y="396" width="282" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="282" id="Gbb-L1-4TH"/>
+                                    <constraint firstAttribute="height" constant="49" id="b2e-Hd-Pm6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bda-Ej-Zpy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6Cj-mm-Qn8"/>
+                            <constraint firstItem="10a-yY-BBn" firstAttribute="top" secondItem="EJQ-tt-6tq" secondAttribute="bottom" constant="8" id="AZG-RV-bU3"/>
+                            <constraint firstItem="nZz-nv-3YA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gcp-12-cMM"/>
+                            <constraint firstItem="nZz-nv-3YA" firstAttribute="top" secondItem="Bgg-hJ-Udq" secondAttribute="bottom" constant="63" id="T4J-zS-ZkH"/>
+                            <constraint firstItem="Bgg-hJ-Udq" firstAttribute="top" secondItem="bda-Ej-Zpy" secondAttribute="bottom" constant="86" id="YiM-xS-84q"/>
+                            <constraint firstItem="bda-Ej-Zpy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="boD-ci-aqA"/>
+                            <constraint firstItem="10a-yY-BBn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hlb-TI-k6U"/>
+                            <constraint firstItem="EJQ-tt-6tq" firstAttribute="top" secondItem="nZz-nv-3YA" secondAttribute="bottom" constant="46" id="jel-Lo-t6l"/>
+                            <constraint firstItem="EJQ-tt-6tq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rOs-5t-j8z"/>
+                            <constraint firstItem="Bgg-hJ-Udq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tWO-Cs-YuR"/>
+                            <constraint firstAttribute="trailing" secondItem="bda-Ej-Zpy" secondAttribute="trailing" id="yoz-63-qPF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
