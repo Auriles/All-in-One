@@ -92,6 +92,12 @@
                             <constraint firstAttribute="trailing" secondItem="bda-Ej-Zpy" secondAttribute="trailing" id="yoz-63-qPF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="montantFactureTextField" destination="Bgg-hJ-Udq" id="Q3P-tP-NkV"/>
+                        <outlet property="montantTotalLabel" destination="10a-yY-BBn" id="Rpb-ZW-vru"/>
+                        <outlet property="pourboireLabel" destination="EJQ-tt-6tq" id="3gg-Nz-gmQ"/>
+                        <outlet property="pourboireSegmentedControl" destination="nZz-nv-3YA" id="Ar4-gm-bgh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

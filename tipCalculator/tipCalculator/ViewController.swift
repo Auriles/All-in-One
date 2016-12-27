@@ -9,17 +9,31 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var montantFactureTextField: UITextField!
+    
+    @IBOutlet weak var pourboireSegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var pourboireLabel: UILabel!
+    
+    @IBOutlet weak var montantTotalLabel: UILabel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        pourboireSegmentedControl.addTarget(self, action: #selector(ViewController.calculerPourboire), for: UIControlEvents.valueChanged)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func calculerPourboire() {
+        print(montantFactureTextField.text!)
     }
-
-
+    
+    
+    
+    
+    
 }
 
