@@ -49,16 +49,22 @@ class ViewController: UIViewController {
             print("Aucune sélection")
         }
         
-        calculerPourboire(pourcent: pourcentagePourboire!)
+        calculerPourboire(pourcent: Float(pourcentagePourboire!))
         
     }
     
-    func calculerPourboire(pourcent:Int) {
+    func calculerPourboire(pourcent:Float) {
         
-        let pourboire = Int(montantFactureTextField.text!)! * pourcent / 100
+        let pourboire = Float(montantFactureTextField.text!)! * pourcent / 100
         
-        print("montant \(pourboire) euros")
-        print("montant total à payer = \(pourboire + Int(montantFactureTextField.text!)!) euros")
+        let montant = Float(montantFactureTextField.text!)
+        
+        let pourboireFormatStr = NSString(format : "%.2f", pourboire)
+        
+        let montantTotalFormatStr = NSString(format : "%.2f", pourboire + montant!)
+        
+        pourboireLabel.text = "€ \(pourboireFormatStr)"
+        montantTotalLabel.text = "€ \(montantTotalFormatStr)"
         
     }
     
