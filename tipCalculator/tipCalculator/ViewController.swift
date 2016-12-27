@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     var pourcentagePourboire:Int?
     
@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         pourboireSegmentedControl.addTarget(self, action: #selector(ViewController.calculerPourcentage), for: UIControlEvents.valueChanged)
+        
+        montantFactureTextField.delegate = self
+        montantFactureTextField.becomeFirstResponder()
     }
     
     func calculerPourcentage() {
@@ -66,6 +69,11 @@ class ViewController: UIViewController {
         pourboireLabel.text = "€ \(pourboireFormatStr)"
         montantTotalLabel.text = "€ \(montantTotalFormatStr)"
         
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        montantFactureTextField.text = ""
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

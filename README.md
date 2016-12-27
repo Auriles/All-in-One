@@ -8,11 +8,11 @@ Application Swift.
 
 -----------------------------------------
 
-- GalleryImages ( Application permettant d'appréhender la construction d'une gallerie d'images )
+- GalleryImages ( Application permettant d'appréhender la construction d'une galerie d'images )
 
 - EggTimer ( Application permettant d’établir un minuteur en fonction de la préparation d'une recette à effectuer )
 
-- TipCalculator
+- TipCalculator ( Calculatrice de pourboire selon le système de paiement Canadien )
 
 - ToDoList
 

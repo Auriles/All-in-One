@@ -26,6 +26,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="4jC-i9-K14"/>
                                 </constraints>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.46416735923313623" green="0.72284396508010906" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" red="0.99484265488985224" green="1" blue="0.97831225046347947" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,7 +35,7 @@
                                     <navigationItem title="Tip Calculator" id="pAH-0y-PDz"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="00.00" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgg-hJ-Udq">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="€ 00.00" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgg-hJ-Udq">
                                 <rect key="frame" x="46" y="151" width="282" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="3pL-D8-D9i"/>
@@ -104,4 +105,5 @@
             <point key="canvasLocation" x="-79.200000000000003" y="137.18140929535232"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.46416735920000002" green="0.72284396510000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
