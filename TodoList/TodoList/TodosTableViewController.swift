@@ -9,6 +9,8 @@
 import UIKit
 
 class TodosTableViewController: UITableViewController {
+    
+    var todos : [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +20,8 @@ class TodosTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        todos = ["aller chez le dentiste","faire les courses","payer les factures"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,14 +38,14 @@ class TodosTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return todos.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoCell", for: indexPath)
 
-        cell.textLabel?.text = "cell"
+        cell.textLabel?.text = todos[indexPath.row]
 
         return cell
     }
