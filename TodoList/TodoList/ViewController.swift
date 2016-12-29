@@ -10,13 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var todoTextField: UITextField!
+    
+    
     @IBAction func annulerAjouterTodo(_ sender: UIBarButtonItem) {
         
         self.dismiss(animated: true, completion: nil)
     }
     
+    
     @IBAction func ajouterTodoAction(_ sender: UIBarButtonItem) {
         
+//        print("todo ajouté : \(todoTextField.text!)")
+        
+        todos.append(todoTextField.text!)
         self.dismiss(animated: true, completion: nil)
     }
     

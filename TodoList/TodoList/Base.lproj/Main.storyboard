@@ -62,6 +62,9 @@
                             <constraint firstAttribute="trailing" secondItem="CKw-3W-VI6" secondAttribute="trailing" id="oR2-Aq-z16"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="todoTextField" destination="7GG-jL-1Xs" id="6Sr-SD-D1d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

@@ -8,10 +8,10 @@
 
 import UIKit
 
+var todos : [String] = []
+
 class TodosTableViewController: UITableViewController {
     
-    var todos : [String] = []
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +22,12 @@ class TodosTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         todos = ["aller chez le dentiste","faire les courses","payer les factures"]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
