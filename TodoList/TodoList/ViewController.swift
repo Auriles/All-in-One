@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol TodosViewControllerDelegate :class {
+    func TodoAjouter(sender: ViewController, todo:String)
+}
+
 class ViewController: UIViewController {
+    
+    var delegate: TodosViewControllerDelegate?
     
     @IBOutlet weak var todoTextField: UITextField!
     
@@ -23,7 +29,8 @@ class ViewController: UIViewController {
         
 //        print("todo ajouté : \(todoTextField.text!)")
         
-        todos.append(todoTextField.text!)
+        delegate?.TodoAjouter(sender: self, todo: todoTextField.text!)
+        
         self.dismiss(animated: true, completion: nil)
     }
     

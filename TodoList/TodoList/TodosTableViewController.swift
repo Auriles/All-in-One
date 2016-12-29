@@ -10,7 +10,7 @@ import UIKit
 
 var todos : [String] = []
 
-class TodosTableViewController: UITableViewController {
+class TodosTableViewController: UITableViewController, TodosViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,12 @@ class TodosTableViewController: UITableViewController {
         cell.textLabel?.text = todos[indexPath.row]
 
         return cell
+    }
+    
+    // TableViewController Delegate
+    
+    func TodoAjouter(sender: ViewController, todo:String) {
+        todos.append(todo)
     }
    
 
