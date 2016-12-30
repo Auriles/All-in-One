@@ -8,21 +8,25 @@ Application Swift.
 
 -----------------------------------------
 
-- GalleryImages ( Application permettant d'appréhender la construction d'une galerie d'images )
+- Gallery Images ( Application permettant d'appréhender la construction d'une galerie d'images )
 
-- EggTimer ( Application permettant d’établir un minuteur en fonction de la préparation d'une recette à effectuer )
+- Egg Timer ( Application permettant d’établir un minuteur en fonction de la préparation d'une recette à effectuer )
 
-- TipCalculator ( Calculatrice de pourboire selon le système de paiement Canadien )
+- Tip Calculator ( Application de type calculatrice de pourboire selon le système de paiement Canadien )
 
-- ToDoList
+- Todo List ( Application permettant de saisir les choses que l'on doit faire )
 
-- TaskGestion
+- Task Gestion
 
-- MeuhBox
+- Play It
 
-- LasVegasCasino
+- Meuh Box
 
-- NearByMe
+- Las Vegas Casino
+
+- Food Near By Me
+
+- Voice
 
 - New York Times Reader
 
