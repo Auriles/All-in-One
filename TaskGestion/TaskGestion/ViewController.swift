@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var ajouterBtn: UIBarButtonItem!
     
     var context:NSManagedObjectContext?
+    var datePickerView:UIDatePicker?
     
     // Actions
     
@@ -33,6 +34,29 @@ class ViewController: UIViewController {
         ajouterTodoAFaire(todo: todoTextField!.text!, date: Date())
         dismiss(animated: true, completion: nil)
     }
+    
+    // Mark - Date Picker view
+    
+    func AjouterDatePickerView() {
+        
+        datePickerView = UIDatePicker()
+        datePickerView?.datePickerMode = UIDatePickerMode.date
+        datePickerView?.addTarget(self, action: #selector(ViewController.selectionDate(_:)), for: .valueChanged)
+        
+        dateTextField.inputView = datePickerView
+    }
+    
+    func selectionDate(_ sender:UIDatePicker) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM dd, yyyy"
+        dateTextField.text = dateFormatter.string(from: sender.date)
+    }
+    
+    
+    
+    
+    // Mark - Core Data
     
     func ajouterTodoAFaire(todo:String, date:Date) {
         
@@ -56,6 +80,7 @@ class ViewController: UIViewController {
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
+        AjouterDatePickerView()
         
     }
 
