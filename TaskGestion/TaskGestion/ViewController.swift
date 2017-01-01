@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -17,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var todoTextField: UITextField!
     
     @IBOutlet weak var ajouterBtn: UIBarButtonItem!
+    
+    var context:NSManagedObjectContext?
     
     // Actions
     
@@ -33,13 +36,39 @@ class ViewController: UIViewController {
     
     func ajouterTodoAFaire(todo:String, date:Date) {
         
-        print("\(date): à faire: \(todo)")
+        let nouveauTodo = NSEntityDescription.insertNewObject(forEntityName: "Todo", into: context!)
+        
+        nouveauTodo.setValue(todo, forKey: "todo")
+        nouveauTodo.setValue(date, forKey: "date")
+        nouveauTodo.setValue(false, forKey: "estFait")
+        
+        do {
+            try context?.save()
+            print("sauvegarde aboutie pour \(nouveauTodo)")
+        } catch {
+            print("erreur sauvegarde au Model")
+        }
     }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
