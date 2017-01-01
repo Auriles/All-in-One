@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class TodosTableViewController: UITableViewController {
+    
+    var context:NSManagedObjectContext?
+    var todos:[NSDictionary] = [NSDictionary]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +22,53 @@ class TodosTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        fetchTodos("") { (array, arrayData) in
+            todos = (array as? [NSDictionary])!
+            tableView.reloadData()
+        }
+        
+    }
+    
+    // MARK - Core Data
+    
+    func fetchTodos(_ predicate:String, completion:(_ array:NSArray, _ arrayData:NSArray) -> ()) {
+        
+        var arr = [NSDictionary]()
+        var arrData = [NSManagedObject]()
+        let requete:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest (entityName: "Todo")
+        
+        do {
+            let resultats = try context!.fetch(requete)
+            
+            for resultat in resultats {
+                
+                let todo = (resultat as AnyObject).value(forKey: "todo")
+                let date = (resultat as AnyObject).value(forKey: "date")
+                let fait = (resultat as AnyObject).value(forKey: "estFait")
+                
+                let todoDict = ["todo":todo, "date": date, "estFait": fait]
+                
+                arr.append(todoDict as NSDictionary )
+                arrData.append(resultat as! NSManagedObject)
+            }
+            
+            completion(arr as NSArray, arrData as NSArray)
+            
+        } catch {
+            
+            print("erreur requête")
+        }
+        
     }
 
     // MARK: - Table view data source
@@ -34,15 +80,17 @@ class TodosTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return todos.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let todo = todos[indexPath.row] as NSDictionary
 
         // Configure the cell...
-        cell.textLabel?.text = "todo \(indexPath.row + 1)"
+        cell.textLabel?.text = todo["todo"] as? String
 
         return cell
     }

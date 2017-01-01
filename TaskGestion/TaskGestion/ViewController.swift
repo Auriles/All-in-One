@@ -57,18 +57,6 @@ class ViewController: UIViewController {
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
