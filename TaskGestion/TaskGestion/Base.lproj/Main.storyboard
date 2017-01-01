@@ -63,8 +63,16 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Ajouter Todo" id="v7f-Iw-g4r">
-                                        <barButtonItem key="leftBarButtonItem" title="Annuler" id="fmA-Pa-32x"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Ajouter" id="gkU-cF-kIn"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Annuler" id="fmA-Pa-32x">
+                                            <connections>
+                                                <action selector="annuler:" destination="BYZ-38-t0r" id="7cC-Ii-jVl"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Ajouter" id="gkU-cF-kIn">
+                                            <connections>
+                                                <action selector="ajouterTodo:" destination="BYZ-38-t0r" id="sPk-o6-dWQ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -95,6 +103,11 @@
                             <constraint firstItem="Qy0-JK-vxi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zSy-HE-cDD"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ajouterBtn" destination="gkU-cF-kIn" id="ovT-BV-Cuf"/>
+                        <outlet property="dateTextField" destination="qIS-ab-mZq" id="oRm-kF-LZK"/>
+                        <outlet property="todoTextField" destination="TMw-C5-cd9" id="ULB-0t-XwS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
