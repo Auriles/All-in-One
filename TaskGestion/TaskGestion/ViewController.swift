@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     var context:NSManagedObjectContext?
     var datePickerView:UIDatePicker?
     var dateTodo:Date?
+    var isTodoEditing:Bool = false
+    var todo:NSDictionary?
     
     // Actions
     
@@ -71,6 +73,17 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK - Format Date
+    
+    func formatterDate(_ date:Date) -> String {
+        
+        var dateStr:String?
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM dd, yyyy"
+        dateStr = dateFormatter.string(from: date)
+        
+        return dateStr!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,12 +92,19 @@ class ViewController: UIViewController {
         
         AjouterDatePickerView()
         
+        if isTodoEditing {
+            
+            todoTextField.text = todo?["todo"] as? String
+            dateTextField.text = formatterDate(todo?["date"] as! Date)
+        } else {
+            
+            todoTextField.text = ""
+            dateTextField.text = ""
+        }
+        
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
     
 }
