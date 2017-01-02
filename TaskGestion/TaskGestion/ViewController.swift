@@ -36,6 +36,12 @@ class ViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    @IBAction func modifierTodo(_ sender: UIBarButtonItem) {
+        
+        modifierTodoExistant(todo: todoTextField.text!, date: dateTodo!)
+    }
+    
     // Mark - Date Picker view
     
     func AjouterDatePickerView() {
@@ -57,6 +63,7 @@ class ViewController: UIViewController {
     
     // Mark - Core Data
     
+    // Ajouter Todo
     func ajouterTodoAFaire(todo:String, date:Date) {
         
         let nouveauTodo = NSEntityDescription.insertNewObject(forEntityName: "Todo", into: context!)
@@ -71,6 +78,52 @@ class ViewController: UIViewController {
         } catch {
             print("erreur sauvegarde au Model")
         }
+    }
+    
+    // Modifier Todo
+    func modifierTodoExistant(todo:String, date:Date) {
+        
+        fetchTodos(todo) { (array, arrayData) in
+            for todo in array {
+                print("todo modifié: \((todo as AnyObject).value(forKey: "todo")))")
+            }
+            print("todo modifié \(array.value(forKey: "todo")))")
+        }
+    }
+    
+    
+    // Lire Todo
+    func fetchTodos(_ predicate:String, completion:(_ array:NSArray, _ arrayData:NSArray) -> ()) {
+        
+        var arr = [NSDictionary]()
+        var arrData = [NSManagedObject]()
+        let requete:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest (entityName: "Todo")
+        
+        // Modifier
+        requete.predicate = NSPredicate(format: "todo = %@", predicate)
+        
+        do {
+            let resultats = try context!.fetch(requete)
+            
+            for resultat in resultats {
+                
+                let todo = (resultat as AnyObject).value(forKey: "todo")
+                let date = (resultat as AnyObject).value(forKey: "date")
+                let fait = (resultat as AnyObject).value(forKey: "estFait")
+                
+                let todoDict = ["todo":todo, "date": date, "estFait": fait]
+                
+                arr.append(todoDict as NSDictionary )
+                arrData.append(resultat as! NSManagedObject)
+            }
+            
+            completion(arr as NSArray, arrData as NSArray)
+            
+        } catch {
+            
+            print("erreur requête")
+        }
+        
     }
     
     // MARK - Format Date
@@ -96,6 +149,7 @@ class ViewController: UIViewController {
             
             todoTextField.text = todo?["todo"] as? String
             dateTextField.text = formatterDate(todo?["date"] as! Date)
+            
         } else {
             
             todoTextField.text = ""

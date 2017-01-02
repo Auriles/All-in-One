@@ -42,7 +42,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="voirDetails" id="Sz0-Qm-ZGU"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Sz0-Qm-ZGU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -63,7 +63,7 @@
             </objects>
             <point key="canvasLocation" x="312.80000000000001" y="137.18140929535232"/>
         </scene>
-        <!--View Controller-->
+        <!--Modifier Todo-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TaskGestion" customModuleProvider="target" sceneMemberID="viewController">
@@ -122,6 +122,13 @@
                             <constraint firstItem="Qy0-JK-vxi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zSy-HE-cDD"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Modifier Todo" id="d0D-Ul-L3T" userLabel="Modifier Todo">
+                        <barButtonItem key="rightBarButtonItem" title="Modifier" id="YLF-Ec-Rws">
+                            <connections>
+                                <action selector="modifierTodo:" destination="BYZ-38-t0r" id="YJM-gL-Kfj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ajouterBtn" destination="gkU-cF-kIn" id="ovT-BV-Cuf"/>
                         <outlet property="dateTextField" destination="qIS-ab-mZq" id="oRm-kF-LZK"/>
