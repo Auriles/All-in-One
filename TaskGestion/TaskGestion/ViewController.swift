@@ -14,24 +14,23 @@ class ViewController: UIViewController {
     // Outlets
     
     @IBOutlet weak var dateTextField: UITextField!
-    
     @IBOutlet weak var todoTextField: UITextField!
-    
     @IBOutlet weak var ajouterBtn: UIBarButtonItem!
+    
+    // Variables
     
     var context:NSManagedObjectContext?
     var datePickerView:UIDatePicker?
+    var dateTodo:Date?
     
     // Actions
     
     @IBAction func annuler(_ sender: UIBarButtonItem) {
-        
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func ajouterTodo(_ sender: UIBarButtonItem) {
-        
-        ajouterTodoAFaire(todo: todoTextField!.text!, date: Date())
+        ajouterTodoAFaire(todo: todoTextField!.text!, date: dateTodo!)
         dismiss(animated: true, completion: nil)
     }
     
@@ -51,10 +50,8 @@ class ViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM dd, yyyy"
         dateTextField.text = dateFormatter.string(from: sender.date)
+        dateTodo = sender.date
     }
-    
-    
-    
     
     // Mark - Core Data
     
@@ -74,7 +71,7 @@ class ViewController: UIViewController {
         }
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,12 +80,12 @@ class ViewController: UIViewController {
         AjouterDatePickerView()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

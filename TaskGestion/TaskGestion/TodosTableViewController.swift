@@ -25,18 +25,28 @@ class TodosTableViewController: UITableViewController {
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        
-        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        fetchTodos("") { (array, arrayData) in
-            todos = (array as? [NSDictionary])!
+        fetchTodos("") {
+            (array, arrayData) in todos = (array as? [NSDictionary])!
             tableView.reloadData()
         }
         
+    }
+    
+    // MARK - Format Date
+    
+    func formatterDate(_ date:Date) -> String {
+        
+        var dateStr:String?
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM dd, yyyy"
+        dateStr = dateFormatter.string(from: date)
+        
+        return dateStr!
     }
     
     // MARK - Core Data
@@ -91,6 +101,7 @@ class TodosTableViewController: UITableViewController {
 
         // Configure the cell...
         cell.textLabel?.text = todo["todo"] as? String
+        cell.detailTextLabel?.text = formatterDate(todo["date"] as! Date)
 
         return cell
     }
