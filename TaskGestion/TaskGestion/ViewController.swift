@@ -39,7 +39,8 @@ class ViewController: UIViewController {
     
     @IBAction func modifierTodo(_ sender: UIBarButtonItem) {
         
-        modifierTodoExistant(todo: todoTextField.text!, date: dateTodo!)
+        modifierTodoExistant(todo: todo?["todo"] as! String, date: dateTodo!)
+        self.navigationController?.popViewController(animated: true)
     }
     
     // Mark - Date Picker view
@@ -84,10 +85,16 @@ class ViewController: UIViewController {
     func modifierTodoExistant(todo:String, date:Date) {
         
         fetchTodos(todo) { (array, arrayData) in
-            for todo in array {
-                print("todo modifié: \((todo as AnyObject).value(forKey: "todo")))")
+            
+            arrayData.setValue(todoTextField!.text, forKey: "todo")
+            arrayData.setValue(date, forKey: "date")
+            
+            do {
+                try context?.save()
+                print("modification aboutie pour \(todo)")
+            } catch {
+                print("erreur modification au Model")
             }
-            print("todo modifié \(array.value(forKey: "todo")))")
         }
     }
     
@@ -126,6 +133,27 @@ class ViewController: UIViewController {
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        AjouterDatePickerView()
+        
+        if isTodoEditing {
+            
+            todoTextField.text = todo?["todo"] as? String
+            dateTextField.text = formatterDate(todo?["date"] as! Date)
+            dateTodo = dateFromStr(dateTextField.text!) as Date
+            
+        } else {
+            
+            todoTextField.text = ""
+            dateTextField.text = ""
+        }
+        
+    }
+    
     // MARK - Format Date
     
     func formatterDate(_ date:Date) -> String {
@@ -138,26 +166,14 @@ class ViewController: UIViewController {
         return dateStr!
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func dateFromStr(_ dateStr: String) -> Date {
         
-        context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM dd, yyyy"
+        let date = formatter.date(from: dateStr)
         
-        AjouterDatePickerView()
-        
-        if isTodoEditing {
-            
-            todoTextField.text = todo?["todo"] as? String
-            dateTextField.text = formatterDate(todo?["date"] as! Date)
-            
-        } else {
-            
-            todoTextField.text = ""
-            dateTextField.text = ""
-        }
-        
+        return date!
     }
-    
     
     
     
