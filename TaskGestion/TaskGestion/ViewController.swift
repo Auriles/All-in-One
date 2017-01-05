@@ -220,25 +220,30 @@ class ViewController: UIViewController {
         
         AjouterDatePickerView()
         
-        // Bouton Fait = true ou false
-        let btnFait = verifierSiFait(todo?["todo"] as! String) as Bool
-        
-        if btnFait {
+        if let todoDisponible = todo?["todo"] as? String {
+            // Bouton Fait = true ou false
+            let btnFait = verifierSiFait(todoDisponible) 
             
-            faitBtn.backgroundColor = UIColor.green
-            faitBtn.layer.borderWidth = 1.0
-            //faitBtn.layer.borderColor = Color.green.CGcolor
-            faitBtn.tintColor = UIColor.white
-            faitBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
-            
-        } else {
-            
-            faitBtn.backgroundColor = UIColor.clear
-            faitBtn.layer.borderWidth = 1.0
-            //faitBtn.layer.borderColor = UIColor.black.cgColor
-            faitBtn.tintColor = UIColor.black
+            if btnFait {
+                
+                faitBtn.backgroundColor = UIColor.green
+                faitBtn.layer.borderWidth = 1.0
+                //faitBtn.layer.borderColor = Color.green.CGcolor
+                faitBtn.tintColor = UIColor.white
+                faitBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+                
+            } else {
+                
+                faitBtn.backgroundColor = UIColor.clear
+                faitBtn.layer.borderWidth = 1.0
+                //faitBtn.layer.borderColor = UIColor.black.cgColor
+                faitBtn.tintColor = UIColor.black
+                
+            }
             
         }
+        
+        
         
         // Mode editing = true ou false
         if isTodoEditing {
@@ -247,10 +252,16 @@ class ViewController: UIViewController {
             dateTextField.text = formatterDate(todo?["date"] as! Date)
             dateTodo = dateFromStr(dateTextField.text!) as Date
             
+            faitBtn.isHidden = false
+            faitBtn.isEnabled = true
+            
         } else {
             
             todoTextField.text = ""
             dateTextField.text = ""
+            
+            faitBtn.isHidden = true
+            faitBtn.isEnabled = false
         }
         
     }
