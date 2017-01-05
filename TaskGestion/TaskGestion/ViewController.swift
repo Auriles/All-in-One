@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var todoTextField: UITextField!
     @IBOutlet weak var ajouterBtn: UIBarButtonItem!
     @IBOutlet weak var faitBtn: UIButton!
+    @IBOutlet weak var erreurLabel: UILabel!
     
     // Variables
     
@@ -33,13 +34,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func ajouterTodo(_ sender: UIBarButtonItem) {
-        ajouterTodoAFaire(todo: todoTextField!.text!, date: dateTodo!)
-        dismiss(animated: true, completion: nil)
+        if (todoTextField!.text != "" && dateTodo != nil) {
+           ajouterTodoAFaire(todo: todoTextField!.text!, date: dateTodo!)
+            dismiss(animated: true, completion: nil)
+        } else {
+            erreurLabel.text = "remplir champs 'todo' et sélectionner une date"
+        }
+        
     }
     
     
     @IBAction func modifierTodo(_ sender: UIBarButtonItem) {
-        modifierTodoExistant(todo: todo?["todo"] as! String, date: dateTodo!)
+        if (todoTextField!.text != "" && dateTodo != nil) {
+            modifierTodoExistant(todo: todo?["todo"] as! String, date: dateTodo!)
+        } else {
+    erreurLabel.text = "remplir champs 'todo' et sélectionner une date"
+    }
         self.navigationController?.popViewController(animated: true)
     }
     

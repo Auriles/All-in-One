@@ -105,9 +105,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="A faire ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-C5-cd9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="A faire ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-C5-cd9">
                                 <rect key="frame" x="26" y="181" width="333" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -125,13 +124,25 @@
                                     <action selector="marquerFaitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bUC-B8-pTd"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEm-Cw-Anh">
+                                <rect key="frame" x="26" y="219" width="191" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="Ucg-eq-l5U"/>
+                                    <constraint firstAttribute="height" constant="21" id="aQt-zz-wCz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="tEm-Cw-Anh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="26" id="1f4-Hq-zQg"/>
                             <constraint firstItem="qIS-ab-mZq" firstAttribute="top" secondItem="Qy0-JK-vxi" secondAttribute="bottom" constant="53" id="6Ek-1o-zeV"/>
                             <constraint firstItem="4M9-wx-uzS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7ud-xA-40k"/>
                             <constraint firstAttribute="trailing" secondItem="4M9-wx-uzS" secondAttribute="trailing" constant="16" id="INO-K2-82i"/>
                             <constraint firstAttribute="trailing" secondItem="qIS-ab-mZq" secondAttribute="trailing" constant="16" id="Myx-Sv-wr9"/>
+                            <constraint firstItem="tEm-Cw-Anh" firstAttribute="top" secondItem="TMw-C5-cd9" secondAttribute="bottom" constant="8" id="QjT-zQ-xnS"/>
                             <constraint firstItem="Qy0-JK-vxi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hVv-WY-C4K"/>
                             <constraint firstAttribute="trailing" secondItem="Qy0-JK-vxi" secondAttribute="trailing" id="xEE-PF-NPa"/>
                             <constraint firstItem="Qy0-JK-vxi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zSy-HE-cDD"/>
@@ -147,6 +158,7 @@
                     <connections>
                         <outlet property="ajouterBtn" destination="gkU-cF-kIn" id="ovT-BV-Cuf"/>
                         <outlet property="dateTextField" destination="qIS-ab-mZq" id="oRm-kF-LZK"/>
+                        <outlet property="erreurLabel" destination="tEm-Cw-Anh" id="jaP-GC-2dp"/>
                         <outlet property="faitBtn" destination="4M9-wx-uzS" id="KKb-8C-Blt"/>
                         <outlet property="todoTextField" destination="TMw-C5-cd9" id="ULB-0t-XwS"/>
                     </connections>
