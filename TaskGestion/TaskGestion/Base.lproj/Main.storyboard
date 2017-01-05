@@ -105,14 +105,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="A faire ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-C5-cd9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="A faire ..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TMw-C5-cd9">
                                 <rect key="frame" x="26" y="181" width="333" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M9-wx-uzS">
-                                <rect key="frame" x="261" y="318.5" width="98" height="30"/>
+                                <rect key="frame" x="261" y="319" width="98" height="30"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="ieL-WG-TU0"/>
@@ -124,12 +125,8 @@
                                     <action selector="marquerFaitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bUC-B8-pTd"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEm-Cw-Anh">
-                                <rect key="frame" x="26" y="219" width="191" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="191" id="Ucg-eq-l5U"/>
-                                    <constraint firstAttribute="height" constant="21" id="aQt-zz-wCz"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tEm-Cw-Anh">
+                                <rect key="frame" x="16" y="326" width="237" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -137,13 +134,15 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="tEm-Cw-Anh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="26" id="1f4-Hq-zQg"/>
+                            <constraint firstItem="tEm-Cw-Anh" firstAttribute="centerY" secondItem="4M9-wx-uzS" secondAttribute="centerY" id="61S-pg-RI5"/>
                             <constraint firstItem="qIS-ab-mZq" firstAttribute="top" secondItem="Qy0-JK-vxi" secondAttribute="bottom" constant="53" id="6Ek-1o-zeV"/>
                             <constraint firstItem="4M9-wx-uzS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7ud-xA-40k"/>
+                            <constraint firstAttribute="trailing" secondItem="tEm-Cw-Anh" secondAttribute="trailing" constant="122" id="IFQ-1S-tf0"/>
                             <constraint firstAttribute="trailing" secondItem="4M9-wx-uzS" secondAttribute="trailing" constant="16" id="INO-K2-82i"/>
                             <constraint firstAttribute="trailing" secondItem="qIS-ab-mZq" secondAttribute="trailing" constant="16" id="Myx-Sv-wr9"/>
-                            <constraint firstItem="tEm-Cw-Anh" firstAttribute="top" secondItem="TMw-C5-cd9" secondAttribute="bottom" constant="8" id="QjT-zQ-xnS"/>
                             <constraint firstItem="Qy0-JK-vxi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hVv-WY-C4K"/>
+                            <constraint firstItem="tEm-Cw-Anh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="p9V-Yr-W44"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tEm-Cw-Anh" secondAttribute="bottom" constant="326" id="wzZ-Hm-FK5"/>
                             <constraint firstAttribute="trailing" secondItem="Qy0-JK-vxi" secondAttribute="trailing" id="xEE-PF-NPa"/>
                             <constraint firstItem="Qy0-JK-vxi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zSy-HE-cDD"/>
                         </constraints>
@@ -165,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.2" y="137.18140929535232"/>
+            <point key="canvasLocation" x="1078.5" y="136.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1AZ-Tf-eKD">

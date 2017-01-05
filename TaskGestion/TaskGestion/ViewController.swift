@@ -12,15 +12,13 @@ import CoreData
 class ViewController: UIViewController {
     
     // Outlets
-    
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var todoTextField: UITextField!
     @IBOutlet weak var ajouterBtn: UIBarButtonItem!
-    @IBOutlet weak var faitBtn: UIButton!
     @IBOutlet weak var erreurLabel: UILabel!
+    @IBOutlet weak var faitBtn: UIButton!
     
     // Variables
-    
     var context:NSManagedObjectContext?
     var datePickerView:UIDatePicker?
     var dateTodo:Date?
@@ -28,36 +26,35 @@ class ViewController: UIViewController {
     var todo:NSDictionary?
     
     // Actions
-    
     @IBAction func annuler(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func ajouterTodo(_ sender: UIBarButtonItem) {
         if (todoTextField!.text != "" && dateTodo != nil) {
-           ajouterTodoAFaire(todo: todoTextField!.text!, date: dateTodo!)
+            ajouterTodoAFaire(todo: todoTextField!.text!, date: dateTodo!)
             dismiss(animated: true, completion: nil)
         } else {
-            erreurLabel.text = "remplir champs 'todo' et sélectionner une date"
+            erreurLabel.text = "remplir champs 'todo' et sélectionner 1 date"
         }
-        
     }
-    
     
     @IBAction func modifierTodo(_ sender: UIBarButtonItem) {
         if (todoTextField!.text != "" && dateTodo != nil) {
             modifierTodoExistant(todo: todo?["todo"] as! String, date: dateTodo!)
+            self.navigationController?.popViewController(animated: true)
         } else {
-    erreurLabel.text = "remplir champs 'todo' et sélectionner une date"
-    }
-        self.navigationController?.popViewController(animated: true)
+            erreurLabel.text = "remplir champs 'todo' et sélectionner 1 date"
+        }
     }
     
     @IBAction func marquerFaitAction(_ sender: UIButton) {
+        
         marquerTodoFait(todo?["todo"] as! String)
     }
     
-    // Mark - Date Picker view
+    
+    //MARK  - Date Picker View
     
     func AjouterDatePickerView() {
         
@@ -68,15 +65,16 @@ class ViewController: UIViewController {
         dateTextField.inputView = datePickerView
     }
     
+    
     func selectionDate(_ sender:UIDatePicker) {
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM dd, yyyy"
+        dateFormatter.dateFormat  = "dd / MM / yyyy"
         dateTextField.text = dateFormatter.string(from: sender.date)
         dateTodo = sender.date
     }
     
-    // Mark - Core Data
+    //MARK  - Core Data
     
     // Ajouter Todo
     func ajouterTodoAFaire(todo:String, date:Date) {
@@ -91,7 +89,7 @@ class ViewController: UIViewController {
             try context?.save()
             print("sauvegarde aboutie pour \(nouveauTodo)")
         } catch {
-            print("erreur sauvegarde au Model")
+            print("erreur sauvegarder au Model")
         }
     }
     
@@ -99,6 +97,8 @@ class ViewController: UIViewController {
     func modifierTodoExistant(todo:String, date:Date) {
         
         fetchTodos(todo) { (array, arrayData) in
+            
+            print(arrayData.value(forKey: "todo"))
             
             arrayData.setValue(todoTextField!.text, forKey: "todo")
             arrayData.setValue(date, forKey: "date")
@@ -110,42 +110,36 @@ class ViewController: UIViewController {
                 print("erreur modification au Model")
             }
         }
+        
     }
     
-    // Marquer Fait
+    // Marquer comme Fait
     func marquerTodoFait(_ todo:String) {
         
         fetchTodos(todo) { (array, arrayData) in
             
             for resultat in arrayData {
                 
-                let todoValue = (resultat as AnyObject).value(forKey: "todo") as? String
+                let todoValue = (resultat as AnyObject).value(forKey: "todo")  as? String
                 let estFait = (resultat as AnyObject).value(forKey: "estFait") as! Bool
                 
                 if todo == todoValue {
                     
                     if estFait {
-                        
                         (resultat as AnyObject).setValue(false, forKey: "estFait")
-                        
                         faitBtn.backgroundColor = UIColor.clear
                         faitBtn.layer.borderWidth = 1.0
-                        //faitBtn.layer.borderColor = UIColor.black.cgColor
+                        faitBtn.layer.borderColor = UIColor.black.cgColor
                         faitBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
                         
                     } else {
-                        
                         (resultat as AnyObject).setValue(true, forKey: "estFait")
-                        
                         faitBtn.backgroundColor = UIColor.green
                         faitBtn.layer.borderWidth = 1.0
-                        //faitBtn.layer.borderColor = UIColor.green.cgColor
+                        faitBtn.layer.borderColor = UIColor.green.cgColor
                         faitBtn.tintColor = UIColor.white
                         faitBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
-                        
                     }
-
-                    
                     
                     
                     // Sauvegarder
@@ -158,48 +152,55 @@ class ViewController: UIViewController {
                 }
             }
             
+            
+            
         }
         
     }
-    
-    // Vérification du Todo s'il est fait ou non
     
     func verifierSiFait(_ todo:String) -> Bool {
         
         var isCompleted:Bool?
         
-        fetchTodos(todo) { (array, arrayData ) in
+        fetchTodos(todo) { (array, arrayData) in
             
             for resultat in arrayData {
                 
-                let todoValue = (resultat as AnyObject).value(forKey: "todo") as? String
+                let todoValue = (resultat as AnyObject).value(forKey: "todo")  as? String
                 let estFait = (resultat as AnyObject).value(forKey: "estFait") as! Bool
                 
                 if todo == todoValue {
                     
+                    
                     if estFait {
+                        
                         isCompleted = true
                     } else {
+                        
                         isCompleted = false
                     } // if
                 } // if
-            }// for
-        } //fetch
+                
+                
+            } // for
+            
+        } // fetch
         
         return isCompleted!
     }
     
     // Lire Todo
-    func fetchTodos(_ predicate:String, completion:(_ array:NSArray, _ arrayData:NSArray) -> ()) {
+    func fetchTodos(_ predicate:String, completion :(_ array:NSArray,_ arrayData:NSArray) -> ()) {
         
         var arr = [NSDictionary]()
         var arrData = [NSManagedObject]()
-        let requete:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest (entityName: "Todo")
+        let requete:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Todo")
         
         // Modifier
         requete.predicate = NSPredicate(format: "todo = %@", predicate)
         
         do {
+            
             let resultats = try context!.fetch(requete)
             
             for resultat in resultats {
@@ -208,9 +209,9 @@ class ViewController: UIViewController {
                 let date = (resultat as AnyObject).value(forKey: "date")
                 let fait = (resultat as AnyObject).value(forKey: "estFait")
                 
-                let todoDict = ["todo":todo, "date": date, "estFait": fait]
+                let todoDict = ["todo": todo, "date": date, "estFait": fait] as [String:Any]
                 
-                arr.append(todoDict as NSDictionary )
+                arr.append(todoDict as NSDictionary)
                 arrData.append(resultat as! NSManagedObject)
             }
             
@@ -223,22 +224,23 @@ class ViewController: UIViewController {
         
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
         AjouterDatePickerView()
         
         if let todoDisponible = todo?["todo"] as? String {
-            // Bouton Fait = true ou false
-            let btnFait = verifierSiFait(todoDisponible) 
+            //bouton Fait = true ou false
+            let btnFait = verifierSiFait(todoDisponible)
             
             if btnFait {
-                
                 faitBtn.backgroundColor = UIColor.green
                 faitBtn.layer.borderWidth = 1.0
-                //faitBtn.layer.borderColor = Color.green.CGcolor
+                faitBtn.layer.borderColor = UIColor.green.cgColor
                 faitBtn.tintColor = UIColor.white
                 faitBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
                 
@@ -246,22 +248,18 @@ class ViewController: UIViewController {
                 
                 faitBtn.backgroundColor = UIColor.clear
                 faitBtn.layer.borderWidth = 1.0
-                //faitBtn.layer.borderColor = UIColor.black.cgColor
+                faitBtn.layer.borderColor = UIColor.black.cgColor
                 faitBtn.tintColor = UIColor.black
-                
             }
-            
         }
-        
         
         
         // Mode editing = true ou false
         if isTodoEditing {
             
-            todoTextField.text = todo?["todo"] as? String
+            todoTextField.text = todo?["todo"] as! String?
             dateTextField.text = formatterDate(todo?["date"] as! Date)
             dateTodo = dateFromStr(dateTextField.text!) as Date
-            
             faitBtn.isHidden = false
             faitBtn.isEnabled = true
             
@@ -272,31 +270,32 @@ class ViewController: UIViewController {
             
             faitBtn.isHidden = true
             faitBtn.isEnabled = false
+            
         }
-        
     }
     
-    // MARK - Format Date
+    
+    //MARK - Format Date
     
     func formatterDate(_ date:Date) -> String {
         
         var dateStr:String?
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM dd, yyyy"
+        dateFormatter.dateFormat  = "dd / MM / yyyy"
         dateStr = dateFormatter.string(from: date)
         
         return dateStr!
     }
     
+    
     func dateFromStr(_ dateStr: String) -> Date {
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM dd, yyyy"
+        let formatter  = DateFormatter()
+        formatter.dateFormat  = "dd / MM / yyyy"
         let date = formatter.date(from: dateStr)
         
         return date!
     }
-    
     
     
 }

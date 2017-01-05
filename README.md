@@ -16,7 +16,7 @@ Application Swift.
 
 - Todo List ( Application permettant de saisir les choses que l'on doit faire )
 
-- Task Gestion
+- Task Gestion ( Application gestionnaire de tâches )
 
 - Play It
 
