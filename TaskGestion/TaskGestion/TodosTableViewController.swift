@@ -80,6 +80,17 @@ class TodosTableViewController: UITableViewController {
         }
         
     }
+    
+    func barrerTodo(_ todo:String, cell: UILabel) {
+        let attributs = [
+            NSFontAttributeName: UIFont(name: "Arial", size: 17.0),
+            NSForegroundColorAttributeName: UIColor.init(red: 178/255.0, green: 180/255.0, blue: 209/255.0, alpha: 1),
+            NSStrikethroughColorAttributeName: NSNumber(value: 0)
+        ] as [String: Any]
+        
+        let stringFormatted = NSAttributedString(string:todo, attributes: attributs)
+        cell.attributedText = stringFormatted
+    }
 
     // MARK: - Table view data source
 
@@ -98,10 +109,20 @@ class TodosTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
         let todo = todos[indexPath.row] as NSDictionary
+        
+        let estFait = todo["estFait"] as? Bool == true
 
         // Configure the cell...
         cell.textLabel?.text = todo["todo"] as? String
         cell.detailTextLabel?.text = formatterDate(todo["date"] as! Date)
+        
+        if estFait {
+            cell.accessoryType = .checkmark
+            barrerTodo(todo["todo"] as! String, cell: cell.textLabel!)
+        } else {
+            cell.accessoryType = .none
+        }
+        
 
         return cell
     }
