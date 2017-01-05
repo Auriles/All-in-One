@@ -127,7 +127,34 @@ class ViewController: UIViewController {
             }
             
         }
+        
+    }
+    
+    // Vérification du Todo s'il est fait ou non
+    
+    func verifierSiFait(_ todo:String) -> Bool {
+        
+        var isCompleted:Bool?
+        
+        fetchTodos(todo) { (array, arrayData ) in
             
+            for resultat in arrayData {
+                
+                let todoValue = (resultat as AnyObject).value(forKey: "todo") as? String
+                let estFait = (resultat as AnyObject).value(forKey: "estFait") as! Bool
+                
+                if todo == todoValue {
+                    
+                    if estFait {
+                        isCompleted = true
+                    } else {
+                        isCompleted = false
+                    } // if
+                } // if
+            }// for
+        } //fetch
+        
+        return isCompleted!
     }
     
     // Lire Todo
@@ -171,6 +198,27 @@ class ViewController: UIViewController {
         
         AjouterDatePickerView()
         
+        // Bouton Fait = true ou false
+        let btnFait = verifierSiFait(todo?["todo"] as! String) as! Bool
+        
+        if btnFait {
+            
+            faitBtn.backgroundColor = UIColor.green
+            faitBtn.layer.borderWidth = 1.0
+            faitBtn.layer.borderColor = UIColor.green.cgColor
+            faitBtn.tintColor = UIColor.white
+            faitBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+            
+        } else {
+            
+            faitBtn.backgroundColor = UIColor.clear
+            faitBtn.layer.borderWidth = 1.0
+            faitBtn.layer.borderColor = UIColor.black.cgColor
+            faitBtn.tintColor = UIColor.black
+            
+        }
+        
+        // Mode editing = true ou false
         if isTodoEditing {
             
             todoTextField.text = todo?["todo"] as? String
