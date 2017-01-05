@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var todoTextField: UITextField!
     @IBOutlet weak var ajouterBtn: UIBarButtonItem!
+    @IBOutlet weak var faitBtn: UIButton!
     
     // Variables
     
@@ -38,9 +39,12 @@ class ViewController: UIViewController {
     
     
     @IBAction func modifierTodo(_ sender: UIBarButtonItem) {
-        
         modifierTodoExistant(todo: todo?["todo"] as! String, date: dateTodo!)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func marquerFaitAction(_ sender: UIButton) {
+        marquerTodoFait(todo?["todo"] as! String)
     }
     
     // Mark - Date Picker view
@@ -98,6 +102,33 @@ class ViewController: UIViewController {
         }
     }
     
+    // Marquer Fait
+    func marquerTodoFait(_ todo:String) {
+        
+        fetchTodos(todo) { (array, arrayData) in
+            
+            for resultat in arrayData {
+                
+                let todoValue = (resultat as AnyObject).value(forKey: "todo") as? String
+                
+                if todo == todoValue {
+                    
+                    (resultat as AnyObject).setValue(true, forKey: "estFait")
+                    faitBtn.backgroundColor = UIColor.green
+                    
+                    // Sauvegarder
+                    do {
+                        try context?.save()
+                        print("marquer comme fait \(todo)")
+                    } catch {
+                        print("erreur modification au Model")
+                    }
+                }
+            }
+            
+        }
+            
+    }
     
     // Lire Todo
     func fetchTodos(_ predicate:String, completion:(_ array:NSArray, _ arrayData:NSArray) -> ()) {

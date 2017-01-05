@@ -112,10 +112,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4M9-wx-uzS">
+                                <rect key="frame" x="261" y="318.5" width="98" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="98" id="ieL-WG-TU0"/>
+                                </constraints>
+                                <state key="normal" title="Fait">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="marquerFaitAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bUC-B8-pTd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qIS-ab-mZq" firstAttribute="top" secondItem="Qy0-JK-vxi" secondAttribute="bottom" constant="53" id="6Ek-1o-zeV"/>
+                            <constraint firstItem="4M9-wx-uzS" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7ud-xA-40k"/>
+                            <constraint firstAttribute="trailing" secondItem="4M9-wx-uzS" secondAttribute="trailing" constant="16" id="INO-K2-82i"/>
                             <constraint firstAttribute="trailing" secondItem="qIS-ab-mZq" secondAttribute="trailing" constant="16" id="Myx-Sv-wr9"/>
                             <constraint firstItem="Qy0-JK-vxi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hVv-WY-C4K"/>
                             <constraint firstAttribute="trailing" secondItem="Qy0-JK-vxi" secondAttribute="trailing" id="xEE-PF-NPa"/>
@@ -132,6 +147,7 @@
                     <connections>
                         <outlet property="ajouterBtn" destination="gkU-cF-kIn" id="ovT-BV-Cuf"/>
                         <outlet property="dateTextField" destination="qIS-ab-mZq" id="oRm-kF-LZK"/>
+                        <outlet property="faitBtn" destination="4M9-wx-uzS" id="KKb-8C-Blt"/>
                         <outlet property="todoTextField" destination="TMw-C5-cd9" id="ULB-0t-XwS"/>
                     </connections>
                 </viewController>
