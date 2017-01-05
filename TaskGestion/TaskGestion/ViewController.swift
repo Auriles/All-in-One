@@ -110,11 +110,33 @@ class ViewController: UIViewController {
             for resultat in arrayData {
                 
                 let todoValue = (resultat as AnyObject).value(forKey: "todo") as? String
+                let estFait = (resultat as AnyObject).value(forKey: "estFait") as! Bool
                 
                 if todo == todoValue {
                     
-                    (resultat as AnyObject).setValue(true, forKey: "estFait")
-                    faitBtn.backgroundColor = UIColor.green
+                    if estFait {
+                        
+                        (resultat as AnyObject).setValue(false, forKey: "estFait")
+                        
+                        faitBtn.backgroundColor = UIColor.clear
+                        faitBtn.layer.borderWidth = 1.0
+                        //faitBtn.layer.borderColor = UIColor.black.cgColor
+                        faitBtn.setTitleColor(UIColor.black, for: UIControlState.normal)
+                        
+                    } else {
+                        
+                        (resultat as AnyObject).setValue(true, forKey: "estFait")
+                        
+                        faitBtn.backgroundColor = UIColor.green
+                        faitBtn.layer.borderWidth = 1.0
+                        //faitBtn.layer.borderColor = UIColor.green.cgColor
+                        faitBtn.tintColor = UIColor.white
+                        faitBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
+                        
+                    }
+
+                    
+                    
                     
                     // Sauvegarder
                     do {
@@ -199,13 +221,13 @@ class ViewController: UIViewController {
         AjouterDatePickerView()
         
         // Bouton Fait = true ou false
-        let btnFait = verifierSiFait(todo?["todo"] as! String) as! Bool
+        let btnFait = verifierSiFait(todo?["todo"] as! String) as Bool
         
         if btnFait {
             
             faitBtn.backgroundColor = UIColor.green
             faitBtn.layer.borderWidth = 1.0
-            faitBtn.layer.borderColor = UIColor.green.cgColor
+            //faitBtn.layer.borderColor = Color.green.CGcolor
             faitBtn.tintColor = UIColor.white
             faitBtn.setTitleColor(UIColor.white, for: UIControlState.normal)
             
@@ -213,7 +235,7 @@ class ViewController: UIViewController {
             
             faitBtn.backgroundColor = UIColor.clear
             faitBtn.layer.borderWidth = 1.0
-            faitBtn.layer.borderColor = UIColor.black.cgColor
+            //faitBtn.layer.borderColor = UIColor.black.cgColor
             faitBtn.tintColor = UIColor.black
             
         }

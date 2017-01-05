@@ -81,12 +81,49 @@ class TodosTableViewController: UITableViewController {
         
     }
     
+    func supprimerTodo(todo:String) {
+        
+        fetchTodos(todo) { (array, arrayData) in
+        
+            for resultat in arrayData {
+                
+                let unTodo = (resultat as AnyObject).value(forKey: "todo") as! String
+                
+                if unTodo == todo {
+                    
+                    context?.delete(resultat as! NSManagedObject)
+                    
+                    // Sauvegarder
+                    do {
+                        try context?.save()
+                        print("\(todo) supprimé")
+                    } catch {
+                        print("erreur suppression todo")
+                    }
+
+                }
+            }
+        }
+        
+    }
+    
     func barrerTodo(_ todo:String, cell: UILabel) {
         let attributs = [
             NSFontAttributeName: UIFont(name: "Arial", size: 17.0),
             NSForegroundColorAttributeName: UIColor.init(red: 178/255.0, green: 180/255.0, blue: 209/255.0, alpha: 1),
-            NSStrikethroughColorAttributeName: NSNumber(value: 0)
+            NSStrikethroughColorAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)
         ] as [String: Any]
+        
+        let stringFormatted = NSAttributedString(string:todo, attributes: attributs)
+        cell.attributedText = stringFormatted
+    }
+    
+    func normalTodo(_ todo:String, cell: UILabel) {
+        let attributs = [
+            NSFontAttributeName: UIFont(name: "Arial", size: 17.0),
+            NSForegroundColorAttributeName: UIColor.init(red: 178/255.0, green: 180/255.0, blue: 209/255.0, alpha: 1),
+            NSStrikethroughColorAttributeName: NSNumber(value: 0)
+            ] as [String: Any]
         
         let stringFormatted = NSAttributedString(string:todo, attributes: attributs)
         cell.attributedText = stringFormatted
@@ -121,6 +158,7 @@ class TodosTableViewController: UITableViewController {
             barrerTodo(todo["todo"] as! String, cell: cell.textLabel!)
         } else {
             cell.accessoryType = .none
+            normalTodo(todo["todo"] as! String, cell: cell.textLabel!)
         }
         
 
@@ -136,17 +174,23 @@ class TodosTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            
+            let todoASupprimer = todos[indexPath.row]["todo"] as! String
+            
+            supprimerTodo(todo: todoASupprimer)
+            
+            todos.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
