@@ -34,6 +34,7 @@
 		FE23FE721E200ECB0045870B /* bensound-romantic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE681E200ECB0045870B /* bensound-romantic.mp3 */; };
 		FE23FE731E200ECB0045870B /* bensound-theelevatorbossanova.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE691E200ECB0045870B /* bensound-theelevatorbossanova.mp3 */; };
 		FE23FE741E200ECB0045870B /* bensound-thelounge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE6A1E200ECB0045870B /* bensound-thelounge.mp3 */; };
+		FE23FE761E2021310045870B /* LecteurViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23FE751E2021310045870B /* LecteurViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		FE23FE681E200ECB0045870B /* bensound-romantic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-romantic.mp3"; sourceTree = "<group>"; };
 		FE23FE691E200ECB0045870B /* bensound-theelevatorbossanova.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-theelevatorbossanova.mp3"; sourceTree = "<group>"; };
 		FE23FE6A1E200ECB0045870B /* bensound-thelounge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-thelounge.mp3"; sourceTree = "<group>"; };
+		FE23FE751E2021310045870B /* LecteurViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LecteurViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				FE23FE5B1E1FFD780045870B /* images */,
 				FE23FE351E1FE2920045870B /* AppDelegate.swift */,
 				FE23FE371E1FE2920045870B /* ViewController.swift */,
+				FE23FE751E2021310045870B /* LecteurViewController.swift */,
 				FE23FE5C1E2003190045870B /* MusicCollectionViewCell.swift */,
 				FE23FE5E1E200DDE0045870B /* Chanson.swift */,
 				FE23FE391E1FE2920045870B /* Main.storyboard */,
@@ -239,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE23FE761E2021310045870B /* LecteurViewController.swift in Sources */,
 				FE23FE381E1FE2920045870B /* ViewController.swift in Sources */,
 				FE23FE5D1E2003190045870B /* MusicCollectionViewCell.swift in Sources */,
 				FE23FE5F1E200DDE0045870B /* Chanson.swift in Sources */,

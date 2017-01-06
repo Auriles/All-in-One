@@ -48,7 +48,46 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         cell.musicImageView.image = UIImage(named: image)
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let indexPath = self.musicCollectionView.indexPath(for: sender as! MusicCollectionViewCell) {
+            
+            if segue.identifier == "goToLecteur" {
+                
+                let chansonSelected = chansons[indexPath.row] as Chanson
+                
+                // Destination
+                let lecteurVC = segue.destination as! LecteurViewController
+                lecteurVC.chansonSelected = chansonSelected
+            }
+        }
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
