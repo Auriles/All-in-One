@@ -20,14 +20,4 @@ Application Swift.
 
 - Play It
 
-- Meuh Box
-
-- Las Vegas Casino
-
-- Food Near By Me
-
-- Voice
-
-- New York Times Reader
-
 -----------------------------------------
