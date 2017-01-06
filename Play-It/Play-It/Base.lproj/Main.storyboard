@@ -86,7 +86,56 @@
                     <view key="view" contentMode="scaleToFill" id="dnL-am-QHv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badass.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-WG-kLT">
+                                <rect key="frame" x="52" y="221" width="280" height="225"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="AHC-xw-6lf"/>
+                                    <constraint firstAttribute="width" constant="280" id="ejE-hN-mCQ"/>
+                                </constraints>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lj3-bF-R8u">
+                                <rect key="frame" x="0.0" y="602" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="Wlk-Gm-qpD"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="stop" id="f2J-SV-2zK"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="HQB-HM-hPh"/>
+                                    <barButtonItem systemItem="pause" id="bCg-yR-jnM"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9Ph-hI-UmN"/>
+                                    <barButtonItem systemItem="play" id="r5A-Au-GyN"/>
+                                </items>
+                            </toolbar>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Pi-12-bCu">
+                                <rect key="frame" x="50" y="122" width="284" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="H0X-rH-uwc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="280" id="TmJ-uE-JbW"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="coG-tn-gdt"/>
+                                    <constraint firstAttribute="width" constant="280" id="jkh-do-O1Y"/>
+                                </constraints>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-37-9ny">
+                                <rect key="frame" x="50" y="515" width="284" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OqG-qq-jEE"/>
+                                    <constraint firstAttribute="width" constant="280" id="qkj-ku-BRp"/>
+                                </constraints>
+                            </slider>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Pi-12-bCu" firstAttribute="centerX" secondItem="dnL-am-QHv" secondAttribute="centerX" constant="4.5" id="6h7-hq-f9m"/>
+                            <constraint firstItem="UUp-Y1-Ymd" firstAttribute="top" secondItem="lj3-bF-R8u" secondAttribute="bottom" id="7Gl-Y9-Ky3"/>
+                            <constraint firstItem="MYO-37-9ny" firstAttribute="centerX" secondItem="dnL-am-QHv" secondAttribute="centerX" constant="4.5" id="NL7-a9-GHT"/>
+                            <constraint firstAttribute="trailing" secondItem="lj3-bF-R8u" secondAttribute="trailing" id="NRn-0d-Qbo"/>
+                            <constraint firstItem="JN3-WG-kLT" firstAttribute="centerX" secondItem="dnL-am-QHv" secondAttribute="centerX" constant="4.5" id="WaI-CR-QHL"/>
+                            <constraint firstItem="7Pi-12-bCu" firstAttribute="top" secondItem="huv-GX-Vux" secondAttribute="bottom" constant="58" id="aCz-Ff-ZBc"/>
+                            <constraint firstItem="MYO-37-9ny" firstAttribute="top" secondItem="JN3-WG-kLT" secondAttribute="bottom" constant="69" id="djR-gQ-jDO"/>
+                            <constraint firstItem="lj3-bF-R8u" firstAttribute="leading" secondItem="dnL-am-QHv" secondAttribute="leading" id="hwe-Vl-Wkv"/>
+                            <constraint firstItem="JN3-WG-kLT" firstAttribute="top" secondItem="huv-GX-Vux" secondAttribute="bottom" constant="157" id="jD1-Vi-5P6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fE1-hQ-FOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,4 +161,7 @@
             <point key="canvasLocation" x="180" y="37"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="badass.jpg" width="338" height="250"/>
+    </resources>
 </document>
