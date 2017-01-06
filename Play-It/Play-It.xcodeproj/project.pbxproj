@@ -12,6 +12,16 @@
 		FE23FE3B1E1FE2920045870B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE391E1FE2920045870B /* Main.storyboard */; };
 		FE23FE3D1E1FE2920045870B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE3C1E1FE2920045870B /* Assets.xcassets */; };
 		FE23FE401E1FE2920045870B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE3E1E1FE2920045870B /* LaunchScreen.storyboard */; };
+		FE23FE511E1FFD710045870B /* badass.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE471E1FFD710045870B /* badass.jpg */; };
+		FE23FE521E1FFD710045870B /* brazilsamba.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE481E1FFD710045870B /* brazilsamba.jpg */; };
+		FE23FE531E1FFD710045870B /* funnysong.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE491E1FFD710045870B /* funnysong.jpg */; };
+		FE23FE541E1FFD710045870B /* groovyhiphop.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE4A1E1FFD710045870B /* groovyhiphop.jpg */; };
+		FE23FE551E1FFD710045870B /* jazzcomedy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE4B1E1FFD710045870B /* jazzcomedy.jpg */; };
+		FE23FE561E1FFD710045870B /* jazzyfrenchy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE4C1E1FFD710045870B /* jazzyfrenchy.jpg */; };
+		FE23FE571E1FFD710045870B /* relaxing.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE4D1E1FFD710045870B /* relaxing.jpg */; };
+		FE23FE581E1FFD710045870B /* romantic.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE4E1E1FFD710045870B /* romantic.jpg */; };
+		FE23FE591E1FFD710045870B /* theelevatorbossanova.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE4F1E1FFD710045870B /* theelevatorbossanova.jpg */; };
+		FE23FE5A1E1FFD710045870B /* thelounge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE501E1FFD710045870B /* thelounge.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +32,16 @@
 		FE23FE3C1E1FE2920045870B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE23FE3F1E1FE2920045870B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE23FE411E1FE2920045870B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE23FE471E1FFD710045870B /* badass.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = badass.jpg; sourceTree = "<group>"; };
+		FE23FE481E1FFD710045870B /* brazilsamba.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = brazilsamba.jpg; sourceTree = "<group>"; };
+		FE23FE491E1FFD710045870B /* funnysong.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = funnysong.jpg; sourceTree = "<group>"; };
+		FE23FE4A1E1FFD710045870B /* groovyhiphop.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = groovyhiphop.jpg; sourceTree = "<group>"; };
+		FE23FE4B1E1FFD710045870B /* jazzcomedy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jazzcomedy.jpg; sourceTree = "<group>"; };
+		FE23FE4C1E1FFD710045870B /* jazzyfrenchy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = jazzyfrenchy.jpg; sourceTree = "<group>"; };
+		FE23FE4D1E1FFD710045870B /* relaxing.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = relaxing.jpg; sourceTree = "<group>"; };
+		FE23FE4E1E1FFD710045870B /* romantic.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = romantic.jpg; sourceTree = "<group>"; };
+		FE23FE4F1E1FFD710045870B /* theelevatorbossanova.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = theelevatorbossanova.jpg; sourceTree = "<group>"; };
+		FE23FE501E1FFD710045870B /* thelounge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thelounge.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 		FE23FE341E1FE2920045870B /* Play-It */ = {
 			isa = PBXGroup;
 			children = (
+				FE23FE5B1E1FFD780045870B /* images */,
 				FE23FE351E1FE2920045870B /* AppDelegate.swift */,
 				FE23FE371E1FE2920045870B /* ViewController.swift */,
 				FE23FE391E1FE2920045870B /* Main.storyboard */,
@@ -62,6 +83,23 @@
 				FE23FE411E1FE2920045870B /* Info.plist */,
 			);
 			path = "Play-It";
+			sourceTree = "<group>";
+		};
+		FE23FE5B1E1FFD780045870B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				FE23FE471E1FFD710045870B /* badass.jpg */,
+				FE23FE481E1FFD710045870B /* brazilsamba.jpg */,
+				FE23FE491E1FFD710045870B /* funnysong.jpg */,
+				FE23FE4A1E1FFD710045870B /* groovyhiphop.jpg */,
+				FE23FE4B1E1FFD710045870B /* jazzcomedy.jpg */,
+				FE23FE4C1E1FFD710045870B /* jazzyfrenchy.jpg */,
+				FE23FE4D1E1FFD710045870B /* relaxing.jpg */,
+				FE23FE4E1E1FFD710045870B /* romantic.jpg */,
+				FE23FE4F1E1FFD710045870B /* theelevatorbossanova.jpg */,
+				FE23FE501E1FFD710045870B /* thelounge.jpg */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +162,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE23FE561E1FFD710045870B /* jazzyfrenchy.jpg in Resources */,
+				FE23FE541E1FFD710045870B /* groovyhiphop.jpg in Resources */,
 				FE23FE401E1FE2920045870B /* LaunchScreen.storyboard in Resources */,
 				FE23FE3D1E1FE2920045870B /* Assets.xcassets in Resources */,
 				FE23FE3B1E1FE2920045870B /* Main.storyboard in Resources */,
+				FE23FE511E1FFD710045870B /* badass.jpg in Resources */,
+				FE23FE551E1FFD710045870B /* jazzcomedy.jpg in Resources */,
+				FE23FE521E1FFD710045870B /* brazilsamba.jpg in Resources */,
+				FE23FE531E1FFD710045870B /* funnysong.jpg in Resources */,
+				FE23FE571E1FFD710045870B /* relaxing.jpg in Resources */,
+				FE23FE591E1FFD710045870B /* theelevatorbossanova.jpg in Resources */,
+				FE23FE581E1FFD710045870B /* romantic.jpg in Resources */,
+				FE23FE5A1E1FFD710045870B /* thelounge.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

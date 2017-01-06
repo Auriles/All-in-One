@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,8 +38,18 @@
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badass.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="T6R-0j-Wwn">
+                                                    <rect key="frame" x="8" y="8" width="184" height="184"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.13033405172413792" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="T6R-0j-Wwn" firstAttribute="top" secondItem="4GF-dI-KY5" secondAttribute="topMargin" id="Yf6-CW-eZW"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="T6R-0j-Wwn" secondAttribute="bottom" id="gNE-xa-wky"/>
+                                            <constraint firstItem="T6R-0j-Wwn" firstAttribute="leading" secondItem="4GF-dI-KY5" secondAttribute="leadingMargin" id="oMu-BH-37K"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="T6R-0j-Wwn" secondAttribute="trailing" id="qwA-98-Rgn"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -59,4 +70,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="badass.jpg" width="338" height="250"/>
+    </resources>
 </document>
