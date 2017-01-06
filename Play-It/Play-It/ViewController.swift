@@ -14,21 +14,25 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
     let array = ["badass","brazilsamba","funnysong","groovyhiphop","jazzcomedy","jazzyfrenchy","relaxing","romantic","theelevatorbossanova","thelounge"]
     
-    
-    
-    
+    var chansons = [Chanson]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         musicCollectionView.dataSource = self
+        
+        for item in array {
+            
+            let chanson = Chanson(titre: item, artiste: "Par Bensound.com", image: "\(item).jpg")
+            
+            chansons.append(chanson)
+        }
     }
 
     // MARK - CollectionViwDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return array.count
+        return chansons.count
     }
     
     
@@ -37,7 +41,9 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "musicCell", for: indexPath) as! MusicCollectionViewCell
         
-        let image = "\(array[indexPath.row]).jpg"
+        let chanson = chansons[indexPath.row]
+        
+        let image = "\(chanson.titre).jpg"
         
         cell.musicImageView.image = UIImage(named: image)
         return cell

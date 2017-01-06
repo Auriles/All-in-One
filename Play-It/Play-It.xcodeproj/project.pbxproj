@@ -23,6 +23,17 @@
 		FE23FE591E1FFD710045870B /* theelevatorbossanova.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE4F1E1FFD710045870B /* theelevatorbossanova.jpg */; };
 		FE23FE5A1E1FFD710045870B /* thelounge.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE501E1FFD710045870B /* thelounge.jpg */; };
 		FE23FE5D1E2003190045870B /* MusicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23FE5C1E2003190045870B /* MusicCollectionViewCell.swift */; };
+		FE23FE5F1E200DDE0045870B /* Chanson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE23FE5E1E200DDE0045870B /* Chanson.swift */; };
+		FE23FE6B1E200ECB0045870B /* bensound-badass.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE611E200ECB0045870B /* bensound-badass.mp3 */; };
+		FE23FE6C1E200ECB0045870B /* bensound-brazilsamba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE621E200ECB0045870B /* bensound-brazilsamba.mp3 */; };
+		FE23FE6D1E200ECB0045870B /* bensound-funnysong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE631E200ECB0045870B /* bensound-funnysong.mp3 */; };
+		FE23FE6E1E200ECB0045870B /* bensound-groovyhiphop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE641E200ECB0045870B /* bensound-groovyhiphop.mp3 */; };
+		FE23FE6F1E200ECB0045870B /* bensound-jazzcomedy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE651E200ECB0045870B /* bensound-jazzcomedy.mp3 */; };
+		FE23FE701E200ECB0045870B /* bensound-jazzyfrenchy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE661E200ECB0045870B /* bensound-jazzyfrenchy.mp3 */; };
+		FE23FE711E200ECB0045870B /* bensound-relaxing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE671E200ECB0045870B /* bensound-relaxing.mp3 */; };
+		FE23FE721E200ECB0045870B /* bensound-romantic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE681E200ECB0045870B /* bensound-romantic.mp3 */; };
+		FE23FE731E200ECB0045870B /* bensound-theelevatorbossanova.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE691E200ECB0045870B /* bensound-theelevatorbossanova.mp3 */; };
+		FE23FE741E200ECB0045870B /* bensound-thelounge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE23FE6A1E200ECB0045870B /* bensound-thelounge.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +55,17 @@
 		FE23FE4F1E1FFD710045870B /* theelevatorbossanova.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = theelevatorbossanova.jpg; sourceTree = "<group>"; };
 		FE23FE501E1FFD710045870B /* thelounge.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thelounge.jpg; sourceTree = "<group>"; };
 		FE23FE5C1E2003190045870B /* MusicCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicCollectionViewCell.swift; sourceTree = "<group>"; };
+		FE23FE5E1E200DDE0045870B /* Chanson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chanson.swift; sourceTree = "<group>"; };
+		FE23FE611E200ECB0045870B /* bensound-badass.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-badass.mp3"; sourceTree = "<group>"; };
+		FE23FE621E200ECB0045870B /* bensound-brazilsamba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-brazilsamba.mp3"; sourceTree = "<group>"; };
+		FE23FE631E200ECB0045870B /* bensound-funnysong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-funnysong.mp3"; sourceTree = "<group>"; };
+		FE23FE641E200ECB0045870B /* bensound-groovyhiphop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-groovyhiphop.mp3"; sourceTree = "<group>"; };
+		FE23FE651E200ECB0045870B /* bensound-jazzcomedy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-jazzcomedy.mp3"; sourceTree = "<group>"; };
+		FE23FE661E200ECB0045870B /* bensound-jazzyfrenchy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-jazzyfrenchy.mp3"; sourceTree = "<group>"; };
+		FE23FE671E200ECB0045870B /* bensound-relaxing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-relaxing.mp3"; sourceTree = "<group>"; };
+		FE23FE681E200ECB0045870B /* bensound-romantic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-romantic.mp3"; sourceTree = "<group>"; };
+		FE23FE691E200ECB0045870B /* bensound-theelevatorbossanova.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-theelevatorbossanova.mp3"; sourceTree = "<group>"; };
+		FE23FE6A1E200ECB0045870B /* bensound-thelounge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "bensound-thelounge.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +98,12 @@
 		FE23FE341E1FE2920045870B /* Play-It */ = {
 			isa = PBXGroup;
 			children = (
+				FE23FE601E200E9F0045870B /* sons */,
 				FE23FE5B1E1FFD780045870B /* images */,
 				FE23FE351E1FE2920045870B /* AppDelegate.swift */,
 				FE23FE371E1FE2920045870B /* ViewController.swift */,
 				FE23FE5C1E2003190045870B /* MusicCollectionViewCell.swift */,
+				FE23FE5E1E200DDE0045870B /* Chanson.swift */,
 				FE23FE391E1FE2920045870B /* Main.storyboard */,
 				FE23FE3C1E1FE2920045870B /* Assets.xcassets */,
 				FE23FE3E1E1FE2920045870B /* LaunchScreen.storyboard */,
@@ -103,6 +127,23 @@
 				FE23FE501E1FFD710045870B /* thelounge.jpg */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		FE23FE601E200E9F0045870B /* sons */ = {
+			isa = PBXGroup;
+			children = (
+				FE23FE611E200ECB0045870B /* bensound-badass.mp3 */,
+				FE23FE621E200ECB0045870B /* bensound-brazilsamba.mp3 */,
+				FE23FE631E200ECB0045870B /* bensound-funnysong.mp3 */,
+				FE23FE641E200ECB0045870B /* bensound-groovyhiphop.mp3 */,
+				FE23FE651E200ECB0045870B /* bensound-jazzcomedy.mp3 */,
+				FE23FE661E200ECB0045870B /* bensound-jazzyfrenchy.mp3 */,
+				FE23FE671E200ECB0045870B /* bensound-relaxing.mp3 */,
+				FE23FE681E200ECB0045870B /* bensound-romantic.mp3 */,
+				FE23FE691E200ECB0045870B /* bensound-theelevatorbossanova.mp3 */,
+				FE23FE6A1E200ECB0045870B /* bensound-thelounge.mp3 */,
+			);
+			name = sons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,18 +206,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE23FE6B1E200ECB0045870B /* bensound-badass.mp3 in Resources */,
 				FE23FE561E1FFD710045870B /* jazzyfrenchy.jpg in Resources */,
 				FE23FE541E1FFD710045870B /* groovyhiphop.jpg in Resources */,
 				FE23FE401E1FE2920045870B /* LaunchScreen.storyboard in Resources */,
+				FE23FE741E200ECB0045870B /* bensound-thelounge.mp3 in Resources */,
 				FE23FE3D1E1FE2920045870B /* Assets.xcassets in Resources */,
+				FE23FE731E200ECB0045870B /* bensound-theelevatorbossanova.mp3 in Resources */,
 				FE23FE3B1E1FE2920045870B /* Main.storyboard in Resources */,
+				FE23FE721E200ECB0045870B /* bensound-romantic.mp3 in Resources */,
+				FE23FE701E200ECB0045870B /* bensound-jazzyfrenchy.mp3 in Resources */,
+				FE23FE6D1E200ECB0045870B /* bensound-funnysong.mp3 in Resources */,
 				FE23FE511E1FFD710045870B /* badass.jpg in Resources */,
 				FE23FE551E1FFD710045870B /* jazzcomedy.jpg in Resources */,
 				FE23FE521E1FFD710045870B /* brazilsamba.jpg in Resources */,
 				FE23FE531E1FFD710045870B /* funnysong.jpg in Resources */,
+				FE23FE711E200ECB0045870B /* bensound-relaxing.mp3 in Resources */,
+				FE23FE6C1E200ECB0045870B /* bensound-brazilsamba.mp3 in Resources */,
 				FE23FE571E1FFD710045870B /* relaxing.jpg in Resources */,
 				FE23FE591E1FFD710045870B /* theelevatorbossanova.jpg in Resources */,
+				FE23FE6E1E200ECB0045870B /* bensound-groovyhiphop.mp3 in Resources */,
 				FE23FE581E1FFD710045870B /* romantic.jpg in Resources */,
+				FE23FE6F1E200ECB0045870B /* bensound-jazzcomedy.mp3 in Resources */,
 				FE23FE5A1E1FFD710045870B /* thelounge.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,6 +241,7 @@
 			files = (
 				FE23FE381E1FE2920045870B /* ViewController.swift in Sources */,
 				FE23FE5D1E2003190045870B /* MusicCollectionViewCell.swift in Sources */,
+				FE23FE5F1E200DDE0045870B /* Chanson.swift in Sources */,
 				FE23FE361E1FE2920045870B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
