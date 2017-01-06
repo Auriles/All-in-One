@@ -12,6 +12,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
 
     @IBOutlet weak var musicCollectionView: UICollectionView!
     
+    let array = ["badass","brazilsamba","funnysong","groovyhiphop","jazzcomedy","jazzyfrenchy","relaxing","romantic","theelevatorbossanova","thelounge"]
     
     
     
@@ -27,15 +28,18 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     // MARK - CollectionViwDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return array.count
     }
     
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "musicCell", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "musicCell", for: indexPath) as! MusicCollectionViewCell
         
+        let image = "\(array[indexPath.row]).jpg"
+        
+        cell.musicImageView.image = UIImage(named: image)
         return cell
     }
 
