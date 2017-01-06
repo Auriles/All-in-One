@@ -87,7 +87,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badass.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-WG-kLT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JN3-WG-kLT">
                                 <rect key="frame" x="52" y="221" width="280" height="225"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="225" id="AHC-xw-6lf"/>
@@ -100,11 +100,23 @@
                                     <constraint firstAttribute="height" constant="65" id="Wlk-Gm-qpD"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem systemItem="stop" id="f2J-SV-2zK"/>
+                                    <barButtonItem systemItem="stop" id="f2J-SV-2zK">
+                                        <connections>
+                                            <action selector="stopMusicAction:" destination="nfI-Lk-PDM" id="huq-bH-8uT"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="HQB-HM-hPh"/>
-                                    <barButtonItem systemItem="pause" id="bCg-yR-jnM"/>
+                                    <barButtonItem systemItem="pause" id="bCg-yR-jnM">
+                                        <connections>
+                                            <action selector="pauseMusicAction:" destination="nfI-Lk-PDM" id="SOP-Oe-aHG"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9Ph-hI-UmN"/>
-                                    <barButtonItem systemItem="play" id="r5A-Au-GyN"/>
+                                    <barButtonItem systemItem="play" id="r5A-Au-GyN">
+                                        <connections>
+                                            <action selector="jouerMusicAction:" destination="nfI-Lk-PDM" id="yvu-gy-1l4"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Pi-12-bCu">
@@ -137,6 +149,11 @@
                             <constraint firstItem="JN3-WG-kLT" firstAttribute="top" secondItem="huv-GX-Vux" secondAttribute="bottom" constant="157" id="jD1-Vi-5P6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chansonImageView" destination="JN3-WG-kLT" id="qUc-TJ-A76"/>
+                        <outlet property="dureeChansonSlider" destination="7Pi-12-bCu" id="Py0-kl-Bvp"/>
+                        <outlet property="volumeChansonSlider" destination="MYO-37-9ny" id="fFx-TX-SYr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fE1-hQ-FOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +178,4 @@
             <point key="canvasLocation" x="180" y="37"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="badass.jpg" width="338" height="250"/>
-    </resources>
 </document>

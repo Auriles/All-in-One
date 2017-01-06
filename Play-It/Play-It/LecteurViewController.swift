@@ -11,6 +11,25 @@ import UIKit
 class LecteurViewController: UIViewController {
     
     var chansonSelected: Chanson? = nil
+    
+    // Outlets
+    @IBOutlet weak var dureeChansonSlider: UISlider!
+    
+    @IBOutlet weak var chansonImageView: UIImageView!
+    
+    @IBOutlet weak var volumeChansonSlider: UISlider!
+    
+    // Actions
+    @IBAction func stopMusicAction(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func pauseMusicAction(_ sender: UIBarButtonItem) {
+    }
+    
+    @IBAction func jouerMusicAction(_ sender: UIBarButtonItem) {
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +37,7 @@ class LecteurViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.title = (chansonSelected!.titre).capitalized
+        chansonImageView.image = UIImage(named: "\(chansonSelected!.image).jpgs")
         
     }
 
