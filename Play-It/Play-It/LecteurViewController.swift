@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LecteurViewController: UIViewController {
     
     var chansonSelected: Chanson? = nil
+    var lecteur:AVAudioPlayer = AVAudioPlayer()
     
     // Outlets
     @IBOutlet weak var dureeChansonSlider: UISlider!
@@ -21,12 +23,15 @@ class LecteurViewController: UIViewController {
     
     // Actions
     @IBAction func stopMusicAction(_ sender: UIBarButtonItem) {
+        lecteur.stop()
     }
     
     @IBAction func pauseMusicAction(_ sender: UIBarButtonItem) {
+        lecteur.pause()
     }
     
     @IBAction func jouerMusicAction(_ sender: UIBarButtonItem) {
+        lecteur.play()
     }
     
     
@@ -39,11 +44,24 @@ class LecteurViewController: UIViewController {
         self.title = (chansonSelected!.titre).capitalized
         chansonImageView.image = UIImage(named: "\(chansonSelected!.image).jpgs")
         
+        jouerLecteurMp3()
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func jouerLecteurMp3() {
+        
+        let chanson = "bensound-\(chansonSelected!.titre)"
+        let fichierMp3 = Bundle.main.path(forResource: chanson, ofType: "mp3")
+        
+        do {
+         
+            try lecteur = AVAudioPlayer(contentsOf: URL(string: fichierMp3!)!)
+            
+        } catch {
+            print("erreur lecture mp3")
+        }
+        
+        print("chanson jouée \(chanson)")
     }
     
 
