@@ -44,8 +44,15 @@ class LecteurViewController: UIViewController {
         self.title = (chansonSelected!.titre).capitalized
         chansonImageView.image = UIImage(named: "\(chansonSelected!.image).jpgs")
         
+        volumeChansonSlider.addTarget(self, action: #selector(LecteurViewController.ajusterVolume(_sender:)), for: UIControlEvents.valueChanged)
+        
         jouerLecteurMp3()
         
+    }
+    
+    func ajusterVolume(_sender:UISlider) {
+        print("volume ajusté \(volumeChansonSlider.value)")
+        lecteur.volume = volumeChansonSlider.value
     }
 
     func jouerLecteurMp3() {
