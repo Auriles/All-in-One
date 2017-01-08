@@ -18,6 +18,6 @@ Application Swift.
 
 - Task Gestion ( Application gestionnaire de tâches )
 
-- Play It
+- Play It ( Application Lecteur de musique Mp3 )
 
 -----------------------------------------
