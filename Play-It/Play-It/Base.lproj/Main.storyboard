@@ -119,6 +119,13 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-37-9ny">
+                                <rect key="frame" x="50" y="515" width="284" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="OqG-qq-jEE"/>
+                                    <constraint firstAttribute="width" constant="280" id="qkj-ku-BRp"/>
+                                </constraints>
+                            </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Pi-12-bCu">
                                 <rect key="frame" x="50" y="122" width="284" height="31"/>
                                 <constraints>
@@ -128,33 +135,26 @@
                                     <constraint firstAttribute="width" constant="280" id="jkh-do-O1Y"/>
                                 </constraints>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7z8-VC-uBj">
-                                <rect key="frame" x="52" y="160" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7z8-VC-uBj">
+                                <rect key="frame" x="52" y="160" width="64" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="2VS-r5-yVR"/>
-                                    <constraint firstAttribute="width" constant="42" id="hgF-Cl-weH"/>
+                                    <constraint firstAttribute="width" constant="64" id="hgF-Cl-weH"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhL-hI-Plm">
-                                <rect key="frame" x="290" y="160" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhL-hI-Plm">
+                                <rect key="frame" x="278" y="160" width="54" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="42" id="hgL-et-Q7K"/>
+                                    <constraint firstAttribute="width" constant="54" id="hgL-et-Q7K"/>
                                     <constraint firstAttribute="height" constant="21" id="yY7-h0-5pA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-37-9ny">
-                                <rect key="frame" x="50" y="515" width="284" height="31"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="OqG-qq-jEE"/>
-                                    <constraint firstAttribute="width" constant="280" id="qkj-ku-BRp"/>
-                                </constraints>
-                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

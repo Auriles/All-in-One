@@ -46,10 +46,10 @@ class LecteurViewController: UIViewController {
     }
     
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         self.title = (chansonSelected!.titre).capitalized
@@ -86,17 +86,51 @@ class LecteurViewController: UIViewController {
     func afficherDuree() {
         print("durée actuelle: \(lecteur.duration - lecteur.currentTime)")
         
-        debutLabel.text = "\(lecteur.currentTime)"
-        finLabel.text = "\(lecteur.duration - lecteur.currentTime)"
+        debutLabel.text = retournerPositionActuelle()
+        finLabel.text = retournerDureeTotale()
     }
-
+    
+    func retournerPositionActuelle() -> String {
+        
+        var seconds = 0
+        var minutes = 0
+        
+        if let duree = lecteur.currentTime as? TimeInterval {
+            
+            seconds = Int(duree) % 60
+            minutes = (Int(duree) / 60) % 60
+            
+        }
+        
+        return String(format: "%0.2i:%0.2i", minutes, seconds)
+    }
+    
+    func retournerDureeTotale() -> String {
+        
+        var seconds = 0
+        var minutes = 0
+        
+        if let duree = lecteur.currentTime as? TimeInterval {
+            
+            var dureeTotale:TimeInterval?
+            dureeTotale = lecteur.duration - lecteur.currentTime
+            
+            seconds = Int(dureeTotale!) % 60
+            minutes = (Int(dureeTotale!) / 60) % 60
+            
+        }
+        
+        return String(format: "%0.2i:%0.2i", minutes, seconds)
+        
+    }
+    
     func jouerLecteurMp3() {
         
         let chanson = "bensound-\(chansonSelected!.titre)"
         let fichierMp3 = Bundle.main.path(forResource: chanson, ofType: "mp3")
         
         do {
-         
+            
             try lecteur = AVAudioPlayer(contentsOf: URL(string: fichierMp3!)!)
             dureeChansonSlider.maximumValue = Float(lecteur.duration)
             
@@ -107,15 +141,15 @@ class LecteurViewController: UIViewController {
         print("chanson jouée \(chanson)")
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
