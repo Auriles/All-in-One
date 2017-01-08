@@ -128,6 +128,26 @@
                                     <constraint firstAttribute="width" constant="280" id="jkh-do-O1Y"/>
                                 </constraints>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7z8-VC-uBj">
+                                <rect key="frame" x="52" y="160" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="2VS-r5-yVR"/>
+                                    <constraint firstAttribute="width" constant="42" id="hgF-Cl-weH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EhL-hI-Plm">
+                                <rect key="frame" x="290" y="160" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="hgL-et-Q7K"/>
+                                    <constraint firstAttribute="height" constant="21" id="yY7-h0-5pA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-37-9ny">
                                 <rect key="frame" x="50" y="515" width="284" height="31"/>
                                 <constraints>
@@ -138,20 +158,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7z8-VC-uBj" firstAttribute="top" secondItem="7Pi-12-bCu" secondAttribute="bottom" constant="8" id="6en-8v-8yr"/>
                             <constraint firstItem="7Pi-12-bCu" firstAttribute="centerX" secondItem="dnL-am-QHv" secondAttribute="centerX" constant="4.5" id="6h7-hq-f9m"/>
                             <constraint firstItem="UUp-Y1-Ymd" firstAttribute="top" secondItem="lj3-bF-R8u" secondAttribute="bottom" id="7Gl-Y9-Ky3"/>
                             <constraint firstItem="MYO-37-9ny" firstAttribute="centerX" secondItem="dnL-am-QHv" secondAttribute="centerX" constant="4.5" id="NL7-a9-GHT"/>
                             <constraint firstAttribute="trailing" secondItem="lj3-bF-R8u" secondAttribute="trailing" id="NRn-0d-Qbo"/>
+                            <constraint firstItem="7z8-VC-uBj" firstAttribute="leading" secondItem="7Pi-12-bCu" secondAttribute="leading" id="UyT-Ze-gYh"/>
                             <constraint firstItem="JN3-WG-kLT" firstAttribute="centerX" secondItem="dnL-am-QHv" secondAttribute="centerX" constant="4.5" id="WaI-CR-QHL"/>
+                            <constraint firstItem="EhL-hI-Plm" firstAttribute="trailing" secondItem="7Pi-12-bCu" secondAttribute="trailing" id="Yhk-nj-RJE"/>
                             <constraint firstItem="7Pi-12-bCu" firstAttribute="top" secondItem="huv-GX-Vux" secondAttribute="bottom" constant="58" id="aCz-Ff-ZBc"/>
                             <constraint firstItem="MYO-37-9ny" firstAttribute="top" secondItem="JN3-WG-kLT" secondAttribute="bottom" constant="69" id="djR-gQ-jDO"/>
                             <constraint firstItem="lj3-bF-R8u" firstAttribute="leading" secondItem="dnL-am-QHv" secondAttribute="leading" id="hwe-Vl-Wkv"/>
                             <constraint firstItem="JN3-WG-kLT" firstAttribute="top" secondItem="huv-GX-Vux" secondAttribute="bottom" constant="157" id="jD1-Vi-5P6"/>
+                            <constraint firstItem="EhL-hI-Plm" firstAttribute="top" secondItem="7Pi-12-bCu" secondAttribute="bottom" constant="8" id="oCJ-lp-S8D"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chansonImageView" destination="JN3-WG-kLT" id="qUc-TJ-A76"/>
+                        <outlet property="debutLabel" destination="7z8-VC-uBj" id="5s5-e0-Brz"/>
                         <outlet property="dureeChansonSlider" destination="7Pi-12-bCu" id="Py0-kl-Bvp"/>
+                        <outlet property="finLabel" destination="EhL-hI-Plm" id="INp-kV-SLB"/>
                         <outlet property="volumeChansonSlider" destination="MYO-37-9ny" id="fFx-TX-SYr"/>
                     </connections>
                 </viewController>

@@ -21,6 +21,17 @@ class LecteurViewController: UIViewController {
     
     @IBOutlet weak var volumeChansonSlider: UISlider!
     
+    @IBOutlet weak var debutLabel: UILabel!
+    
+    @IBOutlet weak var finLabel: UILabel!
+    
+    
+    
+    
+    
+    
+    
+    
     // Actions
     @IBAction func stopMusicAction(_ sender: UIBarButtonItem) {
         lecteur.stop()
@@ -52,6 +63,9 @@ class LecteurViewController: UIViewController {
         // Indiquer position chanson
         _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(LecteurViewController.mettreAJourDuree), userInfo: nil, repeats: true)
         
+        // Afficher durée chanson
+        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(LecteurViewController.afficherDuree), userInfo: nil, repeats: true)
+        
         jouerLecteurMp3()
         
     }
@@ -67,6 +81,13 @@ class LecteurViewController: UIViewController {
     
     func mettreAJourDuree() {
         dureeChansonSlider.value = Float(lecteur.currentTime)
+    }
+    
+    func afficherDuree() {
+        print("durée actuelle: \(lecteur.duration - lecteur.currentTime)")
+        
+        debutLabel.text = "\(lecteur.currentTime)"
+        finLabel.text = "\(lecteur.duration - lecteur.currentTime)"
     }
 
     func jouerLecteurMp3() {
