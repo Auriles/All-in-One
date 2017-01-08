@@ -46,6 +46,12 @@ class LecteurViewController: UIViewController {
         
         volumeChansonSlider.addTarget(self, action: #selector(LecteurViewController.ajusterVolume(_sender:)), for: UIControlEvents.valueChanged)
         
+        // Contrôler durée chanson
+        dureeChansonSlider.addTarget(self, action: #selector(LecteurViewController.ajusterDuree(_sender:)), for: UIControlEvents.valueChanged)
+        
+        // Indiquer position chanson
+        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(LecteurViewController.mettreAJourDuree), userInfo: nil, repeats: true)
+        
         jouerLecteurMp3()
         
     }
@@ -53,6 +59,14 @@ class LecteurViewController: UIViewController {
     func ajusterVolume(_sender:UISlider) {
         print("volume ajusté \(volumeChansonSlider.value)")
         lecteur.volume = volumeChansonSlider.value
+    }
+    
+    func ajusterDuree(_sender:UISlider) {
+        lecteur.currentTime = TimeInterval(dureeChansonSlider.value)
+    }
+    
+    func mettreAJourDuree() {
+        dureeChansonSlider.value = Float(lecteur.currentTime)
     }
 
     func jouerLecteurMp3() {
@@ -63,6 +77,7 @@ class LecteurViewController: UIViewController {
         do {
          
             try lecteur = AVAudioPlayer(contentsOf: URL(string: fichierMp3!)!)
+            dureeChansonSlider.maximumValue = Float(lecteur.duration)
             
         } catch {
             print("erreur lecture mp3")
