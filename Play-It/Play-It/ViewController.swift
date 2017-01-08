@@ -27,6 +27,10 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             
             chansons.append(chanson)
         }
+        
+        let nav = self.navigationController?.navigationBar
+        nav?.barStyle = UIBarStyle.black
+        nav?.tintColor = UIColor.white
     }
 
     // MARK - CollectionViwDataSource

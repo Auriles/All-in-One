@@ -57,12 +57,29 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XNc-ao-cPV">
+                                <rect key="frame" x="0.0" y="632" width="375" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="fZj-N3-eir"/>
+                                    <constraint firstAttribute="height" constant="35" id="puI-vD-skr"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="YlT-gJ-Lzs"/>
+                                    <barButtonItem title="Musique par bensound.com" id="0EZ-2v-7Bh">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="7nc-M0-Zmb" secondAttribute="trailing" id="C99-to-96Q"/>
+                            <constraint firstAttribute="trailing" secondItem="XNc-ao-cPV" secondAttribute="trailing" id="L59-ul-GTP"/>
+                            <constraint firstItem="XNc-ao-cPV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="P5K-Rg-O0c"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="7nc-M0-Zmb" secondAttribute="bottom" id="gD3-es-h7s"/>
                             <constraint firstItem="7nc-M0-Zmb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jGe-50-woZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XNc-ao-cPV" secondAttribute="bottom" id="par-VJ-kaM"/>
                             <constraint firstItem="7nc-M0-Zmb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="u11-dy-UXH"/>
                         </constraints>
                     </view>
@@ -101,23 +118,27 @@
                                 </constraints>
                                 <items>
                                     <barButtonItem systemItem="stop" id="f2J-SV-2zK">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="stopMusicAction:" destination="nfI-Lk-PDM" id="huq-bH-8uT"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="HQB-HM-hPh"/>
                                     <barButtonItem systemItem="pause" id="bCg-yR-jnM">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="pauseMusicAction:" destination="nfI-Lk-PDM" id="SOP-Oe-aHG"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9Ph-hI-UmN"/>
                                     <barButtonItem systemItem="play" id="r5A-Au-GyN">
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <action selector="jouerMusicAction:" destination="nfI-Lk-PDM" id="yvu-gy-1l4"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="MYO-37-9ny">
                                 <rect key="frame" x="50" y="515" width="284" height="31"/>
@@ -190,9 +211,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UYM-4P-cZl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2B4-NJ-udz">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="2B4-NJ-udz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

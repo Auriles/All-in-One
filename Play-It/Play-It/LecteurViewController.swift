@@ -55,6 +55,13 @@ class LecteurViewController: UIViewController {
         self.title = (chansonSelected!.titre).capitalized
         chansonImageView.image = UIImage(named: "\(chansonSelected!.image).jpgs")
         
+        // Formatter 'Back' button
+        let backBtn = UIBarButtonItem(title: "< Playlist", style: .plain, target: self, action: #selector(LecteurViewController.reset(_sender:)))
+        
+        self.navigationItem.leftBarButtonItem = backBtn
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        // Contrôler volume chanson
         volumeChansonSlider.addTarget(self, action: #selector(LecteurViewController.ajusterVolume(_sender:)), for: UIControlEvents.valueChanged)
         
         // Contrôler durée chanson
@@ -69,6 +76,11 @@ class LecteurViewController: UIViewController {
         jouerLecteurMp3()
         
     }
+    
+    func reset(_sender:UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     
     func ajusterVolume(_sender:UISlider) {
         print("volume ajusté \(volumeChansonSlider.value)")
