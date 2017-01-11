@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="mooBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mooBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="YbB-z7-myL">
+                                <rect key="frame" x="67" y="57" width="240" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1wk-Y4-Jyh"/>
+                                    <constraint firstAttribute="height" constant="400" id="gMH-11-I0o"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boîte à Meuh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZvX-da-69O">
+                                <rect key="frame" x="86" y="486" width="203" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="203" id="J8c-Kn-ClA"/>
+                                    <constraint firstAttribute="height" constant="42" id="UuN-Tj-cUA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZvX-da-69O" firstAttribute="top" secondItem="YbB-z7-myL" secondAttribute="bottom" constant="29" id="8DC-vd-cCh"/>
+                            <constraint firstItem="YbB-z7-myL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MIG-em-MFU"/>
+                            <constraint firstItem="YbB-z7-myL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="Sez-Cs-zS3"/>
+                            <constraint firstItem="ZvX-da-69O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uBH-Ci-9um"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mooBoxImageView" destination="YbB-z7-myL" id="XHd-fc-gW5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mooBox.png" width="320" height="480"/>
+    </resources>
+</document>
