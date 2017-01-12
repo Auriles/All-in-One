@@ -22,6 +22,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="casino_gold.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jo1-CT-iCS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdn-8c-ucX">
                                 <rect key="frame" x="33" y="51" width="299" height="189"/>
                                 <constraints>
@@ -34,21 +37,28 @@
                                 <color key="shadowColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="casino_gold.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jo1-CT-iCS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Cd-kI-J9U">
+                                <rect key="frame" x="16" y="260" width="343" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="BwO-mu-pZo"/>
+                                    <constraint firstAttribute="height" constant="216" id="nEd-7V-cJC"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jdn-8c-ucX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="5U7-4I-Id0"/>
+                            <constraint firstItem="2Cd-kI-J9U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7TN-sb-VVn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jo1-CT-iCS" secondAttribute="trailing" constant="-16" id="8PB-Tv-Eem"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jo1-CT-iCS" secondAttribute="bottom" id="B5R-n7-Hp5"/>
                             <constraint firstItem="Jo1-CT-iCS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="BAb-R3-g66"/>
+                            <constraint firstItem="2Cd-kI-J9U" firstAttribute="top" secondItem="jdn-8c-ucX" secondAttribute="bottom" constant="20" id="UBd-eu-dyL"/>
                             <constraint firstItem="jdn-8c-ucX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-5" id="ew3-wf-4DF"/>
                             <constraint firstItem="Jo1-CT-iCS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="wjJ-0u-Rag"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="casinoRoulettePickerView" destination="2Cd-kI-J9U" id="mdh-o7-ati"/>
                         <outlet property="lasVegasLabel" destination="jdn-8c-ucX" id="Zn4-pw-Qvh"/>
                     </connections>
                 </viewController>
