@@ -12,11 +12,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // MARK - Outlets
     @IBOutlet weak var lasVegasLabel: UILabel!
-    
     @IBOutlet weak var casinoRoulettePickerView: UIPickerView!
-    
-    
-    
     
     // MARK - ViewDidLoad
     override func viewDidLoad() {
@@ -29,20 +25,69 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     // MARK - UIPickerViewDataSource
-    @available(iOS 2.0, *)
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
     
     
     // MARK - UIPickerViewDataSource
-    @available(iOS 2.0, *)
-    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return 10
     }
-
     
-
-
+    // MARK - Hauteur
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 100.00
+    }
+    
+    // MARK - Largeur
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return 100.00
+    }
+    
+    // MARK - Nombre de colonnes
+    public func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        
+        let pickerLabel: UILabel = UILabel()
+        
+        switch component {
+        case 0:
+            pickerLabel.text = "\(row)"
+        case 1:
+            pickerLabel.text = "\(row)"
+        case 2:
+            pickerLabel.text = "\(row)"
+        default:
+            pickerLabel.text = ""
+        }
+        
+        pickerLabel.font = UIFont(name: "Arial", size: 40)
+        pickerLabel.textAlignment = NSTextAlignment.center
+        
+        return pickerLabel
+    }
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
