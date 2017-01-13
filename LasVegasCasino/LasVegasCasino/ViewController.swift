@@ -29,13 +29,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionFruits = ["fraise","poire","kiwi","pomme","abricot","citron"]
+        collectionFruits = ["🍓","🍒","🍑","🍎","🍍","🍌","🍊","🍉","🍈","🍇"]
         
-        for i in 0...10 {
+        for _ in 0...10 {
             
-            component1.append(randomNumber(num: collectionFruits.count))
-            component2.append(randomNumber(num: collectionFruits.count))
-            component3.append(randomNumber(num: collectionFruits.count))
+            component1.append(randomNumber(num: collectionFruits.count - 1))
+            component2.append(randomNumber(num: collectionFruits.count - 1))
+            component3.append(randomNumber(num: collectionFruits.count - 1))
         }
         
         lasVegasLabel.text = "Las Vegas \nCasino"
@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // MARK - Hauteur
     func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 100.00
+        return 120.00
     }
     
     // MARK - Largeur
@@ -81,7 +81,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             pickerLabel.text = ""
         }
         
-        pickerLabel.font = UIFont(name: "Arial", size: 20)
+        pickerLabel.font = UIFont(name: "Apple Color Emoji", size: 80)
         pickerLabel.textAlignment = NSTextAlignment.center
         
         return pickerLabel
