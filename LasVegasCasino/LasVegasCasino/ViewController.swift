@@ -14,9 +14,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var lasVegasLabel: UILabel!
     @IBOutlet weak var casinoRoulettePickerView: UIPickerView!
     
+    // MARK - Variables
+    var collectionFruits:[String] = [String]()
+    var component1:[Int] = [Int]()
+    var component2:[Int] = [Int]()
+    var component3:[Int] = [Int]()
+    
+    // MARK - Fonction aléatoire
+    func randomNumber(num:Int) -> Int {
+        return Int(arc4random_uniform(UInt32(num)))
+    }
+    
     // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        collectionFruits = ["fraise","poire","kiwi","pomme","abricot","citron"]
+        
+        for i in 0...10 {
+            
+            component1.append(randomNumber(num: collectionFruits.count))
+            component2.append(randomNumber(num: collectionFruits.count))
+            component3.append(randomNumber(num: collectionFruits.count))
+        }
         
         lasVegasLabel.text = "Las Vegas \nCasino"
         casinoRoulettePickerView.dataSource = self
@@ -32,7 +52,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // MARK - UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 10
+        return collectionFruits.count
     }
     
     // MARK - Hauteur
@@ -52,16 +72,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         switch component {
         case 0:
-            pickerLabel.text = "\(row)"
+            pickerLabel.text = collectionFruits[component1[row]]
         case 1:
-            pickerLabel.text = "\(row)"
+            pickerLabel.text = collectionFruits[component2[row]]
         case 2:
-            pickerLabel.text = "\(row)"
+            pickerLabel.text = collectionFruits[component3[row]]
         default:
             pickerLabel.text = ""
         }
         
-        pickerLabel.font = UIFont(name: "Arial", size: 40)
+        pickerLabel.font = UIFont(name: "Arial", size: 20)
         pickerLabel.textAlignment = NSTextAlignment.center
         
         return pickerLabel
