@@ -11,57 +11,46 @@ import AVFoundation
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    // Variables globales
-    
+    // MARK - Variables
     var pickerInfo: [String] = []
     var tempsCuisson:Int = 0
     var timer:Timer = Timer()
     var estActif:Bool = false
     var lecteur:AVAudioPlayer = AVAudioPlayer()
     
-    // Outlets
-    
+    // MARK - Outlets
     @IBOutlet weak var minuteurLabel: UILabel!
     @IBOutlet weak var activerMinuteurBtn: UIButton!
     @IBOutlet weak var resetMinuteurBtn: UIButton!
     @IBOutlet weak var pickerView: UIPickerView!
     
     
-    // Actions
-    
+    // MARK - Actions
     @IBAction func ActiverMinuteurAction(_ sender: UIButton) {
         compteur()
     }
-    
     @IBAction func resetMinuteurAction(_ sender: UIButton) {
         resetCompteur()
     }
     
-    // ViewDidLoad
-    
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // DataSource + Delegate
-        
+        // MARK - DataSource + Delegate
         pickerView.dataSource = self
-        
         pickerView.delegate = self
-        
         pickerInfo = ["Oeufs Durs","Oeufs à la Coque","Oeuf Mollet","Oeuf Cocotte","Oeuf Poché","Omelette Baveuse","Test Professeur"]
         
         activerMinuteurBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
-        
         activerMinuteurBtn.isEnabled = false
-        
         activerMinuteurBtn.alpha = 0.3
         
         alarm()
         
     }
     
-    // Fonction sélection du temps de cuisson
-    
+    // MARK - Fonction sélection du temps de cuisson
     func selectionCuisson(selection : Int) {
         
         switch selection {
@@ -107,15 +96,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             
         }
         
-        // Sélection effectuée + réaffectation de l'opacité + réaffectation couleur
-        
+        // MARK - Sélection effectuée + réaffectation de l'opacité + réaffectation couleur
         activerMinuteurBtn.isEnabled = true
         activerMinuteurBtn.alpha = 1
         minuteurLabel.textColor = UIColor.black
     }
     
-    // Fonction de conversion des heures en secondes
-    
+    // MARK - Fonction de conversion des heures en secondes
     func minuteurString(temps: Int) -> String {
         
         let heures = Int(temps) / 3600
@@ -125,8 +112,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return String(format: "%02i:%02i:%02i", heures, minutes, secondes)
     }
     
-    // Fonction Timer
-    
+    // MARK - Fonction Timer
     func compteur () {
         
         if (!estActif) {
@@ -148,13 +134,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
     }
     
-    // Fonction d'incrémentation
-    
+    // MARK - Fonction d'incrémentation
     func incrementer () {
         
         if (tempsCuisson == 0) {
             
             timer.invalidate()
+            
             minuteurLabel.text = "00:00:00"
             activerMinuteurBtn.setTitle("Start", for: UIControlState.normal)
             activerMinuteurBtn.setTitleColor(UIColor.blue, for: UIControlState.normal)
@@ -172,15 +158,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             minuteurLabel.text = minuteurString(temps: tempsCuisson)
             
         }
-        
-        
     }
     
-    // Reset le compteur à 0
-    
+    // MARK - Reset le compteur à 0
     func resetCompteur () {
         
         timer.invalidate()
+        
         tempsCuisson = 0
         minuteurLabel.text = "00:00:00"
         activerMinuteurBtn.setTitle("Start", for: UIControlState.normal)
@@ -193,8 +177,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         pickerView.selectRow(0, inComponent: 0, animated: true)
     }
     
-    // AVAudioPlayer
-    
+    // MARK - AVAudioPlayer
     func alarm() {
         
         let fichier = Bundle.main.path(forResource: "alarm", ofType: "mp3")
@@ -206,7 +189,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         }
     }
     
-    // Mark - PickerViewDataSource
+    // MARK - PickerViewDataSource
     
     // returns the number of 'columns' to display.
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -214,7 +197,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return 1
         
     }
-    
     
     // returns the # of rows in each component..
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -230,12 +212,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     // Mark - PickerViewDelegate
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         selectionCuisson(selection: row)
     }
-    
-    
 }
 

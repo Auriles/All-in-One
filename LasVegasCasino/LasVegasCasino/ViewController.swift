@@ -120,9 +120,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         return pickerLabel
     }
-    
-    
-    
 }
 
 

@@ -9,11 +9,13 @@
 import UIKit
 
 class Chanson: NSObject {
-
+    
+    // MARK - Variables
     var titre:String
     var artiste:String
     var image:String
     
+    // MARK - Initialisation chanson
     init(titre:String, artiste:String, image:String) {
         
         self.titre = titre

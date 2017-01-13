@@ -10,5 +10,6 @@ import UIKit
 
 class MusicCollectionViewCell: UICollectionViewCell {
     
+    // MARK - Outlets
     @IBOutlet weak var musicImageView: UIImageView!
 }

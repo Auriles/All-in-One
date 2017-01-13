@@ -14,37 +14,33 @@ protocol TodosViewControllerDelegate :class {
 
 class ViewController: UIViewController {
     
+    // MARK - Variables
     var delegate: TodosViewControllerDelegate?
     
+    // MARK - Outlets
     @IBOutlet weak var todoTextField: UITextField!
     
-    
+    // MARK - Actions
     @IBAction func annulerAjouterTodo(_ sender: UIBarButtonItem) {
-        
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
     @IBAction func ajouterTodoAction(_ sender: UIBarButtonItem) {
-        
-//        print("todo ajouté : \(todoTextField.text!)")
         
         delegate?.TodoAjouter(sender: self, todo: todoTextField.text!)
         
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

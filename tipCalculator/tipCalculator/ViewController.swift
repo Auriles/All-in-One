@@ -10,18 +10,16 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    // MARK - Variables
     var pourcentagePourboire:Int?
     
+    // MARK - Outlets
     @IBOutlet weak var montantFactureTextField: UITextField!
-    
     @IBOutlet weak var pourboireSegmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var pourboireLabel: UILabel!
-    
     @IBOutlet weak var montantTotalLabel: UILabel!
     
-    
-    
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -32,6 +30,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         montantFactureTextField.becomeFirstResponder()
     }
     
+    // MARK - Fonction calculer pourcentage
     func calculerPourcentage() {
         
         switch pourboireSegmentedControl.selectedSegmentIndex {
@@ -56,6 +55,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    // MARK - Fonction calculer pourboire
     func calculerPourboire(pourcent:Float) {
         
         let pourboire = Float(montantFactureTextField.text!)! * pourcent / 100

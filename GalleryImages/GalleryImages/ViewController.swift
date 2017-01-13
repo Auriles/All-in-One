@@ -9,17 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
     
+    // MARK - Variables
     var images:[String] = ["lion.png","canyon.png","concert.png","sommet.png","voiture.png"]
-    
     var index = 1
     
-    
+    // MARK - Outlets
     @IBOutlet weak var image: UIImageView!
     
+    // MARK - Actions
     @IBAction func changerImageAction(_ sender: UIButton) {
-        
         
         if (index == images.count - 1) {
             index = 0
@@ -27,14 +26,14 @@ class ViewController: UIViewController {
             index = index + 1
         }
         let imageStr:String = images[index]
-            
+        
         image.image = UIImage(named: imageStr)
     }
     
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
 }
 

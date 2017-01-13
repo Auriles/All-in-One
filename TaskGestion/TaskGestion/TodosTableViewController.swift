@@ -10,23 +10,21 @@ import CoreData
 
 class TodosTableViewController: UITableViewController {
     
+    // MARK - Variables
     var context:NSManagedObjectContext?
     var todos:[NSDictionary] = [NSDictionary]()
     
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-        
         
         context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
     }
     
+    // MARK - ViewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -36,8 +34,7 @@ class TodosTableViewController: UITableViewController {
         }
     }
     
-    //MARK - Format Date
-    
+    // MARK - Fonction format date
     func formatterDate(_ date:Date) -> String {
         
         var dateStr:String?
@@ -49,8 +46,7 @@ class TodosTableViewController: UITableViewController {
     }
     
     
-    //MARK  - Core Data
-    
+    // MARK  - Fonction Core Data
     func fetchTodos(_ predicate:String, completion :(_ array:NSArray,_ arrayData:NSArray) -> ()) {
         
         var arr = [NSDictionary]()
@@ -82,7 +78,7 @@ class TodosTableViewController: UITableViewController {
         
     }
     
-    
+    // MARK - Fonction supprimer todo
     func supprimerTodo(todo:String) {
         
         fetchTodos(todo) { (array, arrayData) in
@@ -95,7 +91,7 @@ class TodosTableViewController: UITableViewController {
                     
                     context?.delete(resultat as! NSManagedObject)
                     
-                    // Sauvegarder
+                    // MARK - Sauvegarder
                     do {
                         try context?.save()
                         print("\(todo) supprimé")
@@ -110,7 +106,7 @@ class TodosTableViewController: UITableViewController {
         
     }
     
-    
+    // MARK - Fonction barrer todo
     func barrerTodo(_ todo:String, cell:UILabel) {
         
         let attributs = [
@@ -123,6 +119,7 @@ class TodosTableViewController: UITableViewController {
         cell.attributedText = stringFormatted
     }
     
+    // MARK - Fonction todo basique
     func normalTodo(_ todo:String, cell:UILabel) {
         let attributs = [
             NSFontAttributeName: UIFont(name: "Arial", size: 17.0)!,
@@ -170,17 +167,10 @@ class TodosTableViewController: UITableViewController {
         return cell
     }
     
-    
-    
-    // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
     
-    
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
@@ -196,26 +186,16 @@ class TodosTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        
     }
     
-    
-    
-    // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
         return true
     }
     
     
     
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - Fonction navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let viewVC = segue.destination as! ViewController

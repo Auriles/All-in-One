@@ -9,13 +9,15 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource {
-
+    
+    // MARK - Outlets
     @IBOutlet weak var musicCollectionView: UICollectionView!
     
+    // MARK - Constantes et Variables
     let array = ["badass","brazilsamba","funnysong","groovyhiphop","jazzcomedy","jazzyfrenchy","relaxing","romantic","theelevatorbossanova","thelounge"]
-    
     var chansons = [Chanson]()
     
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,15 +34,12 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         nav?.barStyle = UIBarStyle.black
         nav?.tintColor = UIColor.white
     }
-
-    // MARK - CollectionViwDataSource
     
+    // MARK - CollectionViwDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return chansons.count
     }
     
-    
-    // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "musicCell", for: indexPath) as! MusicCollectionViewCell
@@ -53,6 +52,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
     
+    // MARK - Fonction segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let indexPath = self.musicCollectionView.indexPath(for: sender as! MusicCollectionViewCell) {
@@ -61,14 +61,12 @@ class ViewController: UIViewController, UICollectionViewDataSource {
                 
                 let chansonSelected = chansons[indexPath.row] as Chanson
                 
-                // Destination
+                // MARK - Destination
                 let lecteurVC = segue.destination as! LecteurViewController
                 lecteurVC.chansonSelected = chansonSelected
             }
         }
     }
-
-
 }
 
 

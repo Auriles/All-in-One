@@ -11,21 +11,21 @@ import CoreData
 
 class ViewController: UIViewController {
     
-    // Outlets
+    // MARK - Outlets
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var todoTextField: UITextField!
     @IBOutlet weak var ajouterBtn: UIBarButtonItem!
     @IBOutlet weak var erreurLabel: UILabel!
     @IBOutlet weak var faitBtn: UIButton!
     
-    // Variables
+    // MARK - Variables
     var context:NSManagedObjectContext?
     var datePickerView:UIDatePicker?
     var dateTodo:Date?
     var isTodoEditing:Bool = false
     var todo:NSDictionary?
     
-    // Actions
+    // MARK - Actions
     @IBAction func annuler(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -54,8 +54,7 @@ class ViewController: UIViewController {
     }
     
     
-    //MARK  - Date Picker View
-    
+    // MARK  - Date Picker View
     func AjouterDatePickerView() {
         
         datePickerView = UIDatePicker()
@@ -65,7 +64,7 @@ class ViewController: UIViewController {
         dateTextField.inputView = datePickerView
     }
     
-    
+    // MARK - Fonction selection date
     func selectionDate(_ sender:UIDatePicker) {
         
         let dateFormatter = DateFormatter()
@@ -74,9 +73,9 @@ class ViewController: UIViewController {
         dateTodo = sender.date
     }
     
-    //MARK  - Core Data
+    // MARK  - Core Data
     
-    // Ajouter Todo
+    // MARK - Fonction ajouter Todo
     func ajouterTodoAFaire(todo:String, date:Date) {
         
         let nouveauTodo = NSEntityDescription.insertNewObject(forEntityName: "Todo", into: context!)
@@ -93,7 +92,7 @@ class ViewController: UIViewController {
         }
     }
     
-    // Modifier Todo
+    // MARK - Fonction modifier Todo
     func modifierTodoExistant(todo:String, date:Date) {
         
         fetchTodos(todo) { (array, arrayData) in
@@ -113,7 +112,7 @@ class ViewController: UIViewController {
         
     }
     
-    // Marquer comme Fait
+    // MARK - Fonction marquer comme Fait
     func marquerTodoFait(_ todo:String) {
         
         fetchTodos(todo) { (array, arrayData) in
@@ -142,7 +141,7 @@ class ViewController: UIViewController {
                     }
                     
                     
-                    // Sauvegarder
+                    // MARK - Sauvegarder
                     do {
                         try context?.save()
                         print("marquer comme fait \(todo)")
@@ -151,13 +150,10 @@ class ViewController: UIViewController {
                     }
                 }
             }
-            
-            
-            
         }
-        
     }
     
+    // MARK - Fonction vérifier si fait
     func verifierSiFait(_ todo:String) -> Bool {
         
         var isCompleted:Bool?
@@ -178,25 +174,25 @@ class ViewController: UIViewController {
                     } else {
                         
                         isCompleted = false
-                    } // if
-                } // if
+                    }
+                }
                 
                 
-            } // for
+            }
             
-        } // fetch
+        }
         
         return isCompleted!
     }
     
-    // Lire Todo
+    // MARK - Fonction lire Todo
     func fetchTodos(_ predicate:String, completion :(_ array:NSArray,_ arrayData:NSArray) -> ()) {
         
         var arr = [NSDictionary]()
         var arrData = [NSManagedObject]()
         let requete:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Todo")
         
-        // Modifier
+        // MARK - Modifier
         requete.predicate = NSPredicate(format: "todo = %@", predicate)
         
         do {
@@ -224,7 +220,7 @@ class ViewController: UIViewController {
         
     }
     
-    
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -254,7 +250,7 @@ class ViewController: UIViewController {
         }
         
         
-        // Mode editing = true ou false
+        // MARK - Mode editing = true ou false
         if isTodoEditing {
             
             todoTextField.text = todo?["todo"] as! String?
@@ -274,8 +270,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
-    //MARK - Format Date
+    //MARK - Fonction format date
     
     func formatterDate(_ date:Date) -> String {
         

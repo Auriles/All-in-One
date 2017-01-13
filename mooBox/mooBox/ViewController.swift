@@ -11,17 +11,20 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    // MARK - Outlets
     @IBOutlet weak var mooBoxImageView: UIImageView!
     
+    // MARK - Variables
     var player:AVAudioPlayer = AVAudioPlayer()
     
+    // MARK - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         sonDeVache()
-        
     }
     
+    // MARK - Fonction MotionEnded
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         
         if event?.subtype == UIEventSubtype.motionShake {
@@ -30,7 +33,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    // MARK - Fonction jouer le son de la vache
     func sonDeVache() {
         
         let vache = Bundle.main.path(forResource: "cow", ofType: "mp3")
@@ -42,6 +45,7 @@ class ViewController: UIViewController {
         }
     }
     
+    // MARK - Fonction rotation boite
     func rotationBoite() {
         
         var rotation:CGAffineTransform?
@@ -58,6 +62,7 @@ class ViewController: UIViewController {
         
     }
     
+    // MARK - Fonction rotation inverse
     func rotateBack() {
         
         var rotation:CGAffineTransform?
