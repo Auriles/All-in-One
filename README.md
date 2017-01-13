@@ -22,4 +22,6 @@ Application Swift.
 
 - Moo Box ( Application basée sur la boite à meuh pour enfant )
 
+- Las Vegas Casino ( Application basée sur les machines à sous )
+
 -----------------------------------------
