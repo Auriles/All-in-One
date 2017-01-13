@@ -13,12 +13,33 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // MARK - Outlets
     @IBOutlet weak var lasVegasLabel: UILabel!
     @IBOutlet weak var casinoRoulettePickerView: UIPickerView!
+    @IBOutlet weak var resultatLabel: UILabel!
+    
+    // MARK - Actions
+    @IBAction func jouerBtnAction(_ sender: UIButton) {
+        
+        casinoRoulettePickerView.selectRow(randomNumber(num: 100), inComponent: 0, animated: true)
+        casinoRoulettePickerView.selectRow(randomNumber(num: 100), inComponent: 1, animated: true)
+        casinoRoulettePickerView.selectRow(randomNumber(num: 100), inComponent: 2, animated: true)
+        
+        if (component0[casinoRoulettePickerView.selectedRow(inComponent: 0)] == component1[casinoRoulettePickerView.selectedRow(inComponent: 0)] && component1[casinoRoulettePickerView.selectedRow(inComponent: 0)] == component2[casinoRoulettePickerView.selectedRow(inComponent: 1)]) {
+            
+            resultatLabel.text = " BRAVO !\n VOUS AVEZ GAGNÉ ! "
+            resultatLabel.textColor = UIColor.yellow
+            
+        } else {
+            
+            resultatLabel.text = " PERDU\n Essayez de nouveau ! "
+            resultatLabel.textColor = UIColor.red
+            
+        }
+    }
     
     // MARK - Variables
     var collectionFruits:[String] = [String]()
+    var component0:[Int] = [Int]()
     var component1:[Int] = [Int]()
     var component2:[Int] = [Int]()
-    var component3:[Int] = [Int]()
     
     // MARK - Fonction aléatoire
     func randomNumber(num:Int) -> Int {
@@ -31,11 +52,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         collectionFruits = ["🍓","🍒","🍑","🍎","🍍","🍌","🍊","🍉","🍈","🍇"]
         
-        for _ in 0...10 {
+        for _ in 0...100 {
             
+            component0.append(randomNumber(num: collectionFruits.count - 1))
             component1.append(randomNumber(num: collectionFruits.count - 1))
             component2.append(randomNumber(num: collectionFruits.count - 1))
-            component3.append(randomNumber(num: collectionFruits.count - 1))
         }
         
         lasVegasLabel.text = "Las Vegas \nCasino"
@@ -52,7 +73,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     // MARK - UIPickerViewDataSource
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return collectionFruits.count
+        return 100
     }
     
     // MARK - Hauteur
@@ -72,11 +93,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         switch component {
         case 0:
-            pickerLabel.text = collectionFruits[component1[row]]
+            pickerLabel.text = collectionFruits[component0[row]]
         case 1:
-            pickerLabel.text = collectionFruits[component2[row]]
+            pickerLabel.text = collectionFruits[component1[row]]
         case 2:
-            pickerLabel.text = collectionFruits[component3[row]]
+            pickerLabel.text = collectionFruits[component2[row]]
         default:
             pickerLabel.text = ""
         }

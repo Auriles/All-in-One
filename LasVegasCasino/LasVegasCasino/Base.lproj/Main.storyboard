@@ -44,22 +44,56 @@
                                     <constraint firstAttribute="height" constant="216" id="nEd-7V-cJC"/>
                                 </constraints>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LD4-Ce-Fkb">
+                                <rect key="frame" x="37.5" y="513" width="300" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Txb-BD-Co0"/>
+                                    <constraint firstAttribute="width" constant="300" id="kuz-x4-sJe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
+                                <state key="normal" title="Jouer">
+                                    <color key="titleColor" red="0.66666666666666663" green="0.7803921568627451" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="jouerBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yRB-Oh-YqC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5n2-7c-Zcq">
+                                <rect key="frame" x="38" y="608" width="299" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="7WW-as-CZe"/>
+                                    <constraint firstAttribute="width" constant="299" id="o0B-Aq-HQu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Jo1-CT-iCS" secondAttribute="trailing" id="1AB-VE-Raq"/>
                             <constraint firstItem="jdn-8c-ucX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="5U7-4I-Id0"/>
                             <constraint firstItem="2Cd-kI-J9U" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7TN-sb-VVn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Jo1-CT-iCS" secondAttribute="trailing" constant="-16" id="8PB-Tv-Eem"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jo1-CT-iCS" secondAttribute="bottom" id="B5R-n7-Hp5"/>
                             <constraint firstItem="Jo1-CT-iCS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="BAb-R3-g66"/>
+                            <constraint firstItem="5n2-7c-Zcq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Bt3-eT-dh3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jo1-CT-iCS" secondAttribute="bottom" id="GFm-Re-0WO"/>
                             <constraint firstItem="2Cd-kI-J9U" firstAttribute="top" secondItem="jdn-8c-ucX" secondAttribute="bottom" constant="20" id="UBd-eu-dyL"/>
+                            <constraint firstItem="LD4-Ce-Fkb" firstAttribute="top" secondItem="2Cd-kI-J9U" secondAttribute="bottom" constant="37" id="Y65-fj-nQ8"/>
+                            <constraint firstItem="Jo1-CT-iCS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dfA-C0-vaf"/>
+                            <constraint firstItem="Jo1-CT-iCS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="efm-wI-a3W"/>
                             <constraint firstItem="jdn-8c-ucX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-5" id="ew3-wf-4DF"/>
+                            <constraint firstItem="5n2-7c-Zcq" firstAttribute="top" secondItem="LD4-Ce-Fkb" secondAttribute="bottom" constant="45" id="kXN-au-ESC"/>
+                            <constraint firstItem="LD4-Ce-Fkb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sZg-gT-lMx"/>
                             <constraint firstItem="Jo1-CT-iCS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="wjJ-0u-Rag"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="casinoRoulettePickerView" destination="2Cd-kI-J9U" id="mdh-o7-ati"/>
                         <outlet property="lasVegasLabel" destination="jdn-8c-ucX" id="Zn4-pw-Qvh"/>
+                        <outlet property="resultatLabel" destination="5n2-7c-Zcq" id="VhJ-wh-wpn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
