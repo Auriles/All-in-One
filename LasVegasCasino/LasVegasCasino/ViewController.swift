@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -27,6 +28,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             resultatLabel.text = " BRAVO !\n VOUS AVEZ GAGNÉ ! "
             resultatLabel.textColor = UIColor.yellow
             
+            vainqueur()
+            
         } else {
             
             resultatLabel.text = " PERDU\n Essayez de nouveau ! "
@@ -44,6 +47,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // MARK - Fonction aléatoire
     func randomNumber(num:Int) -> Int {
         return Int(arc4random_uniform(UInt32(num)))
+    }
+    
+    // MARK - Fonction vainqueur
+    func vainqueur() {
+        if let sonURL = Bundle.main.url(forResource: "winSoundEffect", withExtension: "mp3") {
+            
+            var son:SystemSoundID = 0
+            AudioServicesCreateSystemSoundID(sonURL as CFURL, &son)
+            AudioServicesPlaySystemSound(son)
+        }
     }
     
     // MARK - ViewDidLoad
